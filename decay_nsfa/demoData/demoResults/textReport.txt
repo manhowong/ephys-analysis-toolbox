@@ -1,0 +1,14 @@
+26-Apr-2022 13:05:21
+
+---------- Below: ch-ctrl_f_adult.txt ----------
+i = 0.90094231 
+N = 26.21210951 
+R^2 = 0.61252484 
+Estimated baseline variance = 4.65235093
+- [500 events] found in the recording.
+- [164 events] were excluded from the analysis.
+- [100% to 10%] decay phase was specified for the fitting.
+- [50 bins] were made.
+
+Analysis completed!
+Figures and analysis reports were saved in ../demoResults/.
