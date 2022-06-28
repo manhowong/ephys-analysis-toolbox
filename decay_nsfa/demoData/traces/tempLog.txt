@@ -1,0 +1,519 @@
+29-Apr-2022 13:33:29
+
+---------- Below: ch-ctrl_f_adult.txt ----------
+i = 0.90094231 
+N = 26.21210951 
+R^2 = 0.61252484 
+Estimated baseline variance = 4.65235093
+- [500 events] found in the recording.
+- [164 events] were excluded from the analysis.
+- [100% to 10%] decay phase was specified for the fitting.
+- [50 bins] were made.
+
+---------- Below: ctrl_f_adult_gfpP_1.txt ----------
+i = 1.55487377 
+N = 17.36684012 
+R^2 = 0.83968143 
+Estimated baseline variance = 6.59724733
+- [500 events] found in the recording.
+- [146 events] were excluded from the analysis.
+- [100% to 10%] decay phase was specified for the fitting.
+- [50 bins] were made.
+
+---------- Below: ctrl_f_adult_gfpP_2.txt ----------
+i = 1.27231794 
+N = 18.20391927 
+R^2 = 0.56008603 
+Estimated baseline variance = 6.24652650
+- [500 events] found in the recording.
+- [211 events] were excluded from the analysis.
+- [100% to 10%] decay phase was specified for the fitting.
+- [50 bins] were made.
+
+---------- Below: ctrl_f_adult_gfpP_3.txt ----------
+i = 2.09431743 
+N = 10.27233231 
+R^2 = 0.87400349 
+Estimated baseline variance = 2.03382264
+- [500 events] found in the recording.
+- [121 events] were excluded from the analysis.
+- [100% to 10%] decay phase was specified for the fitting.
+- [50 bins] were made.
+
+---------- Below: lbn_f_adult_gfpP_jumpy.txt ----------
+i = 3.00578271 
+N = 7.12630972 
+R^2 = 0.91832624 
+Estimated baseline variance = 2.55332161
+- [500 events] found in the recording.
+- [155 events] were excluded from the analysis.
+- [100% to 10%] decay phase was specified for the fitting.
+- [50 bins] were made.
+
+---------- Below: lbn_f_adult_tdtP.txt ----------
+i = 1.54092760 
+N = 16.04985420 
+R^2 = 0.48159994 
+Estimated baseline variance = 4.55863761
+- [500 events] found in the recording.
+- [271 events] were excluded from the analysis.
+- [100% to 10%] decay phase was specified for the fitting.
+- [50 bins] were made.
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('zeroTraces', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\functions\zeroTraces.m', 7)" style="font-weight:bold">zeroTraces</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\functions\zeroTraces.m',7,0)">line 7</a>)
+Row index exceeds table dimensions.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('nsfa2', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\functions\nsfa2.m', 94)" style="font-weight:bold">nsfa2</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\functions\nsfa2.m',94,0)">line 94</a>)
+allTraces = zeroTraces(allTraces, baseStartT, baseEndT, sFreq);  % zero traces first
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runNSFA2', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\runNSFA2.m', 111)" style="font-weight:bold">runNSFA2</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\runNSFA2.m',111,0)">line 111</a>)
+            [results, fig] = nsfa2(fname,tracesDir,settings);
+} 
+report.Properties.RowNames
+
+ans =
+
+  6×1 <a href="matlab:helpPopup cell" style="font-weight:bold">cell</a> array
+
+    {'ch-ctrl_f_adult.txt'       }
+    {'ctrl_f_adult_gfpP_1.txt'   }
+    {'ctrl_f_adult_gfpP_2.txt'   }
+    {'ctrl_f_adult_gfpP_3.txt'   }
+    {'lbn_f_adult_gfpP_jumpy.txt'}
+    {'lbn_f_adult_tdtP.txt'      }
+
+ismember(fName,report.Properties.RowNames)
+{Unrecognized function or variable 'fName'.
+} 
+ismember('lbn_f_adult_tdtP.txt',report.Properties.RowNames)
+
+ans =
+
+  <a href="matlab:helpPopup logical" style="font-weight:bold">logical</a>
+
+   1
+
+ismember('lbn_f_adult_tdtlP.txt',report.Properties.RowNames)
+
+ans =
+
+  <a href="matlab:helpPopup logical" style="font-weight:bold">logical</a>
+
+   0
+
+getReportByGroup
+{Not enough input arguments.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getReportByGroup', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m', 5)" style="font-weight:bold">getReportByGroup</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m',5,0)">line 5</a>)
+nGroup = height(groupedData);
+} 
+height(groupedData)
+
+ans =
+
+    86
+
+reportByGroup = getReportByGroup(report,groupedData);
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('tabular/numArgumentsFromSubscript', 'C:\Program Files\MATLAB\R2021b\toolbox\matlab\datatypes\tabular\@tabular\numArgumentsFromSubscript.m', 78)" style="font-weight:bold">tabular/numArgumentsFromSubscript</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2021b\toolbox\matlab\datatypes\tabular\@tabular\numArgumentsFromSubscript.m',78,0)">line 78</a>)
+Unrecognized table variable name 'files'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getReportByGroup', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m', 8)" style="font-weight:bold">getReportByGroup</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m',8,0)">line 8</a>)
+    nFile = height(groupedData.files{g});
+} 
+reportByGroup = getReportByGroup(report,groupedData);
+groupIndex = removevars(groupIndex, 'dataPoints');
+groupIndex.Properties.VariableNames{10} = 'files';
+Unrecognized function or variable 'groupedIndex'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getReportByGroup', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m', 21)" style="font-weight:bold">getReportByGroup</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m',21,0)">line 21</a>)
+nGroup = height(groupedIndex);
+
+getReportByGroup
+{Not enough input arguments.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getReportByGroup', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m', 5)" style="font-weight:bold">getReportByGroup</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m',5,0)">line 5</a>)
+nGroup = height(groupIndex);
+} 
+reportByGroup = getReportByGroup(report,groupedData);
+{'groupedData' requires <a href="matlab:matlab.internal.addons.launchers.showExplorer('ErrorRecovery', 'identifier', 'SB', 'focused', 'groupedData');">SimBiology</a>.
+} 
+reportByGroup = getReportByGroup(report,groupIndex);
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('tabular/numArgumentsFromSubscript', 'C:\Program Files\MATLAB\R2021b\toolbox\matlab\datatypes\tabular\@tabular\numArgumentsFromSubscript.m', 78)" style="font-weight:bold">tabular/numArgumentsFromSubscript</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2021b\toolbox\matlab\datatypes\tabular\@tabular\numArgumentsFromSubscript.m',78,0)">line 78</a>)
+Unrecognized table variable name 'events'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getReportByGroup', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m', 8)" style="font-weight:bold">getReportByGroup</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m',8,0)">line 8</a>)
+    nFile = height(groupIndex.events{g});
+} 
+reportByGroup = getReportByGroup(report,groupIndex);
+report.Properties.RowNames{1} = 'MW200626_02.txt';
+report.Properties.RowNames{2} = 'MW200627_03.txt';
+report.Properties.RowNames{3} = 'MW200627_05.txt';
+report.Properties.RowNames{4} = 'MW200708_05.txt';
+report.Properties.RowNames{5} = 'MW190305_01.txt';
+report.Properties.RowNames{6} = 'MW200828_03.txt';
+report.Properties.RowNames{6} = 'MW200828_03.txt';
+reportByGroup = getReportByGroup(report,groupIndex);
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getReportByGroup', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m', 12)" style="font-weight:bold">getReportByGroup</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m',12,0)">line 12</a>)
+Unable to concatenate the table variables 'i, pA' and 'baseVar Type', because their types are
+double and cell.
+} 
+report{fName,:}
+{Unrecognized function or variable 'fName'.
+} 
+report{fname}
+{Subscripting into a table using one subscript (as in t(i)) is not supported. Specify a row
+subscript and a variable subscript, as in t(rows,vars). To select variables, use t(:,i) or
+for one variable t.(i). To select rows, use t(i,:).
+} 
+report(fname,:)
+{Unrecognized table row name 'tempLog.txt'.
+} 
+report(fName,:)
+{Unrecognized function or variable 'fName'.
+} 
+report('MW200626_02.txt',:)
+
+ans =
+
+  1×11 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+                        <strong>i, pA</strong>       <strong>N</strong>       <strong>baseVar, pA^2</strong>    <strong>baseVar Type</strong>       <strong>r^2</strong>      <strong>Total traces</strong>    <strong>Excluded traces</strong>    <strong>Analysis start, % Peak</strong>    <strong>Analysis end, % Peak</strong>    <strong>Decay end found, 0 if not</strong>    <strong>Bins</strong>
+                       <strong>_______</strong>    <strong>______</strong>    <strong>_____________</strong>    <strong>_____________</strong>    <strong>_______</strong>    <strong>____________</strong>    <strong>_______________</strong>    <strong>______________________</strong>    <strong>____________________</strong>    <strong>_________________________</strong>    <strong>____</strong>
+
+    <strong>MW200626_02.txt</strong>    0.90094    26.212       4.6524        {'estimated'}    0.61252        500               164                   100                       10                       true                50 
+
+report{'MW200626_02.txt',:}
+{Unable to concatenate the table variables 'i, pA' and 'baseVar Type', because their types are
+double and cell.
+} 
+report{1,:}
+{Unable to concatenate the table variables 'i, pA' and 'baseVar Type', because their types are
+double and cell.
+} 
+report{1}
+{Subscripting into a table using one subscript (as in t(i)) is not supported. Specify a row
+subscript and a variable subscript, as in t(rows,vars). To select variables, use t(:,i) or
+for one variable t.(i). To select rows, use t(i,:).
+} 
+report{1,:}
+{Unable to concatenate the table variables 'i, pA' and 'baseVar Type', because their types are
+double and cell.
+} 
+report(1,:)
+
+ans =
+
+  1×11 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+                        <strong>i, pA</strong>       <strong>N</strong>       <strong>baseVar, pA^2</strong>    <strong>baseVar Type</strong>       <strong>r^2</strong>      <strong>Total traces</strong>    <strong>Excluded traces</strong>    <strong>Analysis start, % Peak</strong>    <strong>Analysis end, % Peak</strong>    <strong>Decay end found, 0 if not</strong>    <strong>Bins</strong>
+                       <strong>_______</strong>    <strong>______</strong>    <strong>_____________</strong>    <strong>_____________</strong>    <strong>_______</strong>    <strong>____________</strong>    <strong>_______________</strong>    <strong>______________________</strong>    <strong>____________________</strong>    <strong>_________________________</strong>    <strong>____</strong>
+
+    <strong>MW200626_02.txt</strong>    0.90094    26.212       4.6524        {'estimated'}    0.61252        500               164                   100                       10                       true                50 
+
+report{1,:}
+{Unable to concatenate the table variables 'i, pA' and 'baseVar Type', because their types are
+double and cell.
+} 
+report(1,:)
+
+ans =
+
+  1×11 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+                        <strong>i, pA</strong>       <strong>N</strong>       <strong>baseVar, pA^2</strong>    <strong>baseVar Type</strong>       <strong>r^2</strong>      <strong>Total traces</strong>    <strong>Excluded traces</strong>    <strong>Analysis start, % Peak</strong>    <strong>Analysis end, % Peak</strong>    <strong>Decay end found, 0 if not</strong>    <strong>Bins</strong>
+                       <strong>_______</strong>    <strong>______</strong>    <strong>_____________</strong>    <strong>_____________</strong>    <strong>_______</strong>    <strong>____________</strong>    <strong>_______________</strong>    <strong>______________________</strong>    <strong>____________________</strong>    <strong>_________________________</strong>    <strong>____</strong>
+
+    <strong>MW200626_02.txt</strong>    0.90094    26.212       4.6524        {'estimated'}    0.61252        500               164                   100                       10                       true                50 
+
+getReportByGroup
+{Not enough input arguments.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getReportByGroup', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m', 5)" style="font-weight:bold">getReportByGroup</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m',5,0)">line 5</a>)
+nGroup = height(groupIndex);
+} 
+reportByGroup = getReportByGroup(report,groupIndex);
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getReportByGroup', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m', 12)" style="font-weight:bold">getReportByGroup</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m',12,0)">line 12</a>)
+Subscripting into a table using one subscript (as in t(i)) is not supported. Specify a row
+subscript and a variable subscript, as in t(rows,vars). To select variables, use t(:,i) or
+for one variable t.(i). To select rows, use t(i,:).
+} 
+reportByGroup = getReportByGroup(report,groupIndex);
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getReportByGroup', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m', 12)" style="font-weight:bold">getReportByGroup</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m',12,0)">line 12</a>)
+Subscripting into a table using one subscript (as in t(i)) is not supported. Specify a row
+subscript and a variable subscript, as in t(rows,vars). To select variables, use t(:,i) or
+for one variable t.(i). To select rows, use t(i,:).
+} 
+reportByGroup = getReportByGroup(report,groupIndex);
+reportByGroup = getReportByGroup(report,groupIndex);
+reportByGroup = getReportByGroup(report,groupIndex);
+reportByGroup = getReportByGroup(report,groupIndex);
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getReportByGroup', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m', 12)" style="font-weight:bold">getReportByGroup</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m',12,0)">line 12</a>)
+Adding rows or variables to a table by an assignment where () or {} subscripting is followed
+by additional levels of subscripting is not supported.
+} 
+reportByGroup = getReportByGroup(report,groupIndex);
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getReportByGroup', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m', 12)" style="font-weight:bold">getReportByGroup</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m',12,0)">line 12</a>)
+Adding rows or variables to a table by an assignment where () or {} subscripting is followed
+by additional levels of subscripting is not supported.
+} 
+reportByGroup = getReportByGroup(report,groupIndex);
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getReportByGroup', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m', 12)" style="font-weight:bold">getReportByGroup</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m',12,0)">line 12</a>)
+The value on the right-hand side of the assignment has the wrong width. The assignment
+requires a value whose width is 1.
+} 
+reportByGroup = getReportByGroup(report,groupIndex);
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getReportByGroup', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m', 12)" style="font-weight:bold">getReportByGroup</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m',12,0)">line 12</a>)
+Unrecognized table row name 'ctrlBrownF17tdtN'.
+} 
+t = table
+
+t =
+
+  0×0 empty <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+t('sdf',1)
+{Unrecognized table row name 'sdf'.
+} 
+t('sdf',1) = []
+{Unrecognized table row name 'sdf'.
+} 
+t('sdf',1) = d
+{Unrecognized function or variable 'd'.
+} 
+t('sdf',1) = 2
+{Right hand side of an assignment into a table must be another table or a cell array.
+} 
+t{'sdf',1} = cell
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('cell')" style="font-weight:bold">cell</a>
+Not enough input arguments.
+} 
+t{'sdf',1} = cell()
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('cell')" style="font-weight:bold">cell</a>
+Not enough input arguments.
+} 
+t{'sdf',1} = cell(1,1)
+
+t =
+
+  <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+               <strong>Var1</strong>    
+           <strong>____________</strong>
+
+    <strong>sdf</strong>    {0×0 double}
+
+t{'sdf',1} = []
+{The value on the right-hand side of the assignment has the wrong width. The assignment
+requires a value whose width is 1.
+} 
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getReportByGroup', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m', 13)" style="font-weight:bold">getReportByGroup</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m',13,0)">line 13</a>)
+Unrecognized table row name 'MW200626_02.txt'.
+
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getReportByGroup', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m', 13)" style="font-weight:bold">getReportByGroup</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m',13,0)">line 13</a>)
+Unrecognized table row name 'MW200626_02.txt'.
+
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getReportByGroup', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m', 13)" style="font-weight:bold">getReportByGroup</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m',13,0)">line 13</a>)
+The value on the right-hand side of the assignment has the wrong width. The assignment
+requires a value whose width is 1.
+
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getReportByGroup', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m', 13)" style="font-weight:bold">getReportByGroup</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m',13,0)">line 13</a>)
+Unrecognized table row name 'MW200626_02.txt'.
+
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getReportByGroup', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m', 13)" style="font-weight:bold">getReportByGroup</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m',13,0)">line 13</a>)
+Unrecognized table row name 'MW200626_02.txt'.
+
+ reportByGroup{gName,1} = [234567,23456]
+{The value on the right-hand side of the assignment has the wrong width. The assignment
+requires a value whose width is 1.
+} 
+reportByGroup{gName,1} = {}
+{The value on the right-hand side of the assignment has the wrong width. The assignment
+requires a value whose width is 1.
+} 
+reportByGroup{gName,1} = []
+{The value on the right-hand side of the assignment has the wrong width. The assignment
+requires a value whose width is 1.
+} 
+reportByGroup{gName,1} = 09
+{Conversion to cell from double is not possible.
+} 
+reportByGroup{gName,1} = 099
+{Conversion to cell from double is not possible.
+} 
+reportByGroup{gName,1} = 'jhgfds'
+{The value on the right-hand side of the assignment has the wrong width. The assignment
+requires a value whose width is 1.
+} 
+reportByGroup{gName,1} = "kjhgfd"
+{Unable to perform assignment because value of type 'string' is not convertible to 'cell'.
+
+Caused by:
+    Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('cell')" style="font-weight:bold">cell</a>
+    Conversion to cell from string is not possible.
+} 
+reportByGroup{gName,1} = []
+{The value on the right-hand side of the assignment has the wrong width. The assignment
+requires a value whose width is 1.
+} 
+reportByGroup(gName,1) = cell(1,1);
+reportByGroup(gName,1) = [23456,234567]
+{The number of table variables in an assignment must match.
+} 
+reportByGroup.report{gName} = []
+
+reportByGroup =
+
+  1×2 <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+                            <strong>Var1</strong>           <strong>report</strong>   
+                        <strong>____________</strong>    <strong>____________</strong>
+
+    <strong>ctrlBrownF17tdtN</strong>    {0×0 double}    {0×0 double}
+
+reportByGroup = removevars(reportByGroup, 'Var1');
+reportByGroup = table
+
+reportByGroup =
+
+  0×0 empty <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+reportByGroup.report{gName} = []
+
+reportByGroup =
+
+  <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+                           <strong>report</strong>   
+                        <strong>____________</strong>
+
+    <strong>ctrlBrownF17tdtN</strong>    {0×0 double}
+
+reportByGroup.report{gName}{fName,:} = []
+{Assigning to 0 elements using a simple assignment statement is not supported. Consider using
+comma-separated list assignment.
+
+<a href="matlab:helpview('matlab','error_index_expected_one_output_for_assignment')" style="font-weight:bold">Related documentation</a>
+} 
+reportByGroup.report{gName}{fName,:} = 9
+{Assigning to 0 elements using a simple assignment statement is not supported. Consider using
+comma-separated list assignment.
+
+<a href="matlab:helpview('matlab','error_index_expected_one_output_for_assignment')" style="font-weight:bold">Related documentation</a>
+} 
+reportByGroup.report{gName}(fName,:) = 9
+
+reportByGroup =
+
+  <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+                            <strong>report</strong>    
+                        <strong>______________</strong>
+
+    <strong>ctrlBrownF17tdtN</strong>    {120×1 double}
+
+reportByGroup.report{gName}(fName,:) = 9;
+reportByGroup.report{gName}(fName,:) = 0;
+reportByGroup.report{gName}(fName,:) = [];
+reportByGroup.report{gName} = []
+
+reportByGroup =
+
+  <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+                           <strong>report</strong>   
+                        <strong>____________</strong>
+
+    <strong>ctrlBrownF17tdtN</strong>    {0×0 double}
+
+reportByGroup.report{gName}(fName,:) = 9;
+reportByGroup.report{gName} = []
+
+reportByGroup =
+
+  <a href="matlab:helpPopup table" style="font-weight:bold">table</a>
+
+                           <strong>report</strong>   
+                        <strong>____________</strong>
+
+    <strong>ctrlBrownF17tdtN</strong>    {0×0 double}
+
+reportByGroup.report{gName}(fName,:) = [];
+{Matrix index is out of range for deletion.
+} 
+reportByGroup.report{gName}{fName,:} = [];
+{Assigning to 0 elements using a simple assignment statement is not supported. Consider using
+comma-separated list assignment.
+
+<a href="matlab:helpview('matlab','error_index_expected_one_output_for_assignment')" style="font-weight:bold">Related documentation</a>
+} 
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getReportByGroup', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m', 16)" style="font-weight:bold">getReportByGroup</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m',16,0)">line 16</a>)
+To assign to or create a variable in a table, the number of rows must match the height of the
+table.
+
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getReportByGroup', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m', 16)" style="font-weight:bold">getReportByGroup</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m',16,0)">line 16</a>)
+To assign to or create a variable in a table, the number of rows must match the height of the
+table.
+
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getReportByGroup', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m', 16)" style="font-weight:bold">getReportByGroup</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m',16,0)">line 16</a>)
+To assign to or create a variable in a table, the number of rows must match the height of the
+table.
+
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getReportByGroup', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m', 16)" style="font-weight:bold">getReportByGroup</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m',16,0)">line 16</a>)
+To assign to or create a variable in a table, the number of rows must match the height of the
+table.
+
+
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getReportByGroup', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m', 16)" style="font-weight:bold">getReportByGroup</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m',16,0)">line 16</a>)
+To assign to or create a variable in a table, the number of rows must match the height of the
+table.
+
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getReportByGroup', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m', 16)" style="font-weight:bold">getReportByGroup</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m',16,0)">line 16</a>)
+The value on the right-hand side of the assignment has the wrong width. The assignment
+requires a value whose width is 1.
+
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getReportByGroup', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m', 16)" style="font-weight:bold">getReportByGroup</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\getReportByGroup.m',16,0)">line 16</a>)
+Unrecognized table row name 'ctrlBrownF17tdtN'.
+
+runFitDecay
+[Warning: The assignment added rows to the table, but did not assign values to all of the
+table's existing variables. Those variables are extended with rows containing default values.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('tabular/subsasgnDot', 'C:\Program Files\MATLAB\R2021b\toolbox\matlab\datatypes\tabular\@tabular\subsasgnDot.m', 477)" style="font-weight:bold">tabular/subsasgnDot</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2021b\toolbox\matlab\datatypes\tabular\@tabular\subsasgnDot.m',477,0)">line 477</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('tabular/subsasgn', 'C:\Program Files\MATLAB\R2021b\toolbox\matlab\datatypes\tabular\@tabular\subsasgn.m', 70)" style="font-weight:bold">tabular/subsasgn</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2021b\toolbox\matlab\datatypes\tabular\@tabular\subsasgn.m',70,0)">line 70</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runFitDecay', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\runFitDecay.m', 63)" style="font-weight:bold">runFitDecay</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\runFitDecay.m',63,0)">line 63</a>)] 
+[Warning: The assignment added rows to the table, but did not assign values to all of the
+table's existing variables. Those variables are extended with rows containing default values.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('tabular/subsasgnDot', 'C:\Program Files\MATLAB\R2021b\toolbox\matlab\datatypes\tabular\@tabular\subsasgnDot.m', 477)" style="font-weight:bold">tabular/subsasgnDot</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2021b\toolbox\matlab\datatypes\tabular\@tabular\subsasgnDot.m',477,0)">line 477</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('tabular/subsasgn', 'C:\Program Files\MATLAB\R2021b\toolbox\matlab\datatypes\tabular\@tabular\subsasgn.m', 70)" style="font-weight:bold">tabular/subsasgn</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2021b\toolbox\matlab\datatypes\tabular\@tabular\subsasgn.m',70,0)">line 70</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runFitDecay', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\runFitDecay.m', 63)" style="font-weight:bold">runFitDecay</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\runFitDecay.m',63,0)">line 63</a>)] 
+[Warning: The assignment added rows to the table, but did not assign values to all of the
+table's existing variables. Those variables are extended with rows containing default values.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('tabular/subsasgnDot', 'C:\Program Files\MATLAB\R2021b\toolbox\matlab\datatypes\tabular\@tabular\subsasgnDot.m', 477)" style="font-weight:bold">tabular/subsasgnDot</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2021b\toolbox\matlab\datatypes\tabular\@tabular\subsasgnDot.m',477,0)">line 477</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('tabular/subsasgn', 'C:\Program Files\MATLAB\R2021b\toolbox\matlab\datatypes\tabular\@tabular\subsasgn.m', 70)" style="font-weight:bold">tabular/subsasgn</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2021b\toolbox\matlab\datatypes\tabular\@tabular\subsasgn.m',70,0)">line 70</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runFitDecay', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\runFitDecay.m', 63)" style="font-weight:bold">runFitDecay</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\runFitDecay.m',63,0)">line 63</a>)] 
+[Warning: The assignment added rows to the table, but did not assign values to all of the
+table's existing variables. Those variables are extended with rows containing default values.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('tabular/subsasgnDot', 'C:\Program Files\MATLAB\R2021b\toolbox\matlab\datatypes\tabular\@tabular\subsasgnDot.m', 477)" style="font-weight:bold">tabular/subsasgnDot</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2021b\toolbox\matlab\datatypes\tabular\@tabular\subsasgnDot.m',477,0)">line 477</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('tabular/subsasgn', 'C:\Program Files\MATLAB\R2021b\toolbox\matlab\datatypes\tabular\@tabular\subsasgn.m', 70)" style="font-weight:bold">tabular/subsasgn</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2021b\toolbox\matlab\datatypes\tabular\@tabular\subsasgn.m',70,0)">line 70</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runFitDecay', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\runFitDecay.m', 63)" style="font-weight:bold">runFitDecay</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\runFitDecay.m',63,0)">line 63</a>)] 
+[Warning: The assignment added rows to the table, but did not assign values to all of the
+table's existing variables. Those variables are extended with rows containing default values.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('tabular/subsasgnDot', 'C:\Program Files\MATLAB\R2021b\toolbox\matlab\datatypes\tabular\@tabular\subsasgnDot.m', 477)" style="font-weight:bold">tabular/subsasgnDot</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2021b\toolbox\matlab\datatypes\tabular\@tabular\subsasgnDot.m',477,0)">line 477</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('tabular/subsasgn', 'C:\Program Files\MATLAB\R2021b\toolbox\matlab\datatypes\tabular\@tabular\subsasgn.m', 70)" style="font-weight:bold">tabular/subsasgn</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2021b\toolbox\matlab\datatypes\tabular\@tabular\subsasgn.m',70,0)">line 70</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runFitDecay', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\runFitDecay.m', 63)" style="font-weight:bold">runFitDecay</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\runFitDecay.m',63,0)">line 63</a>)] 
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('sum')" style="font-weight:bold">sum</a>
+Invalid data type. First argument must be numeric or logical.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('mean', 'C:\Program Files\MATLAB\R2021b\toolbox\matlab\datafun\mean.m', 127)" style="font-weight:bold">mean</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2021b\toolbox\matlab\datafun\mean.m',127,0)">line 127</a>)
+        y = sum(x, dim, flag) ./ mysize(x,dim);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('zeroTraces', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\functions\zeroTraces.m', 7)" style="font-weight:bold">zeroTraces</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\functions\zeroTraces.m',7,0)">line 7</a>)
+baseMean_original = mean(allTraces{baseStartPt:baseEndPt,2:end},1);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('fitDecay', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\functions\fitDecay.m', 25)" style="font-weight:bold">fitDecay</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\functions\fitDecay.m',25,0)">line 25</a>)
+allTraces = zeroTraces(allTraces, baseStartT, baseEndT, sFreq);  % zero traces first
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runFitDecay', 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\runFitDecay.m', 61)" style="font-weight:bold">runFitDecay</a> (<a href="matlab: opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\runFitDecay.m',61,0)">line 61</a>)
+            decayInfo = fitDecay(fname, tracesDir, settings);
+} 
+opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\runFitDecay.m',61,0)
+opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\functions\fitDecay.m',25,0)
+opentoline('C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\scripts\functions\zeroTraces.m',7,0)
