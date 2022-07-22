@@ -1,4 +1,4 @@
-function [compiledData] = importRecordings(docPath)
+function [compiledData] = importRecordings(docPath,resultDir)
 % organize mini data for further analysis
 % sort events by time
 % calculate iei of each event
@@ -48,7 +48,7 @@ end
 
 %% Save
 fprintf('Saving data. Please wait...\n')
-save('analysis/compiledData.mat','compiledData');
-fprintf('Done! Compiled data was saved as \n''compiledData.mat'' in the folder ''analysis''.\n');
+save(resultDir + '/compiledData.mat','compiledData');
+fprintf('Done! Compiled data was saved as \n''compiledData.mat'' in the your result directory.\n');
 
 end
