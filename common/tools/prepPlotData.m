@@ -32,13 +32,6 @@ output.sex = data.sex;
 output.age = data.age;
 output.cell = data.cellType;
 
-%% Remove unwanted recordings
-
-output = output(output.cond~=categorical({'handled-ctrl'}),:);
-output = output(output.cond~=categorical({'challenged-ctrl'}),:);
-output = output(output.cond~=categorical({'challenged-lbn'}),:);
-output.cond = removecats(output.cond);
-
 %% Convert age to age group
 
 p17 = find(output.age>=17 & output.age<=18);
@@ -51,14 +44,15 @@ output.age(p22) = {'P22-23'};
 output.age(p53) = {'>= P53'};
 output.age = categorical(output.age);
 
-%% Remove P22-23
+%% Remove unwanted recordings
 
-output = output(output.age~=categorical({'P22-23'}),:);
-output.age = removecats(output.age);
-
-%% Remove MSEW
-
+% Remove unwanted conditions
 output = output(output.cond~=categorical({'msew'}),:);
+output = output(output.cond~=categorical({'handled-ctrl'}),:);
+output = output(output.cond~=categorical({'challenged-ctrl'}),:);
+output = output(output.cond~=categorical({'challenged-lbn'}),:);
 output.cond = removecats(output.cond);
 
-
+% Remove P22-23
+output = output(output.age~=categorical({'P22-23'}),:);
+output.age = removecats(output.age);

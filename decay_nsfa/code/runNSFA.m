@@ -32,13 +32,13 @@ fname = '';
 
 % Directory of aligned traces file(s)
 % Must ends in '/'
-tracesDir = 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\data\all\';
+tracesDir = 'C:\Users\MAW427\OneDrive - University of Pittsburgh\data\ELE project\ephys\raw\events_aligned\';
 
 % Directory where you want the script to create and store the results
 %   ATTENTION: If this directory already exists, all files in it will be 
 %              overwritten! Use a different name if needed.
 % Must ends in '/'
-resultDir = 'C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\data\all\nsfa\';
+resultDir = 'C:\Users\MAW427\OneDrive - University of Pittsburgh\data\ELE project\ephys\analysis\decay_nsfa_results\nsfa\';
 
 % Recording properties
 settings.baseStartT = 0;   % baseline start time, ms
