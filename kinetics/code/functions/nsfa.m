@@ -20,6 +20,8 @@ function [results, fig] = nsfa(fname, tracesDir, settings)
 %           - settings.baseStartT : baseline start time, ms
 %           - settings.baseEndT : baseline end time, ms
 %           - settings.tailLength : tail (end of trace) length, ms
+%           - settings.membraneV : membrane potential, mV
+%           - settings.reversalV : reversal potential of target channel, mV
 %           - settings.decayStart : Decay phase start point, % peak
 %           - settings.decayEnd : Decay phase end point, % peak
 %           - settings.binning : binning datapoints (true or false)
@@ -28,7 +30,7 @@ function [results, fig] = nsfa(fname, tracesDir, settings)
 %                                       (true or false)
 %           See comments in the code for more info.
 % -------------------------------------------------------------------------
-% Outputs: - Command window: values for i, N, R^2, etc.
+% Outputs: - Command window: values for i, N, g, R^2, etc.
 %          - Figure: plot of variance vs mean current and the fitted curve
 %                     and plot of traces analyzed
 %          - nsfaReport: summary report for NSFA
@@ -38,6 +40,8 @@ function [results, fig] = nsfa(fname, tracesDir, settings)
 baseStartT = settings.baseStartT;  % baseline start time, ms
 baseEndT = settings.baseEndT;  % baseline length, ms
 tailLength = settings.tailLength;  % tail (end of trace) length, ms
+membraneV = settings.membraneV;
+reversalV = settings.reversalV;
 
 %% Fitting preferences
 
@@ -247,10 +251,11 @@ else
 end
 
 % Retrive fitting results
-current  = fitResults.a;
-nChannel = fitResults.b;
+current  = fitResults.a;  % single channel current, pA
+nChannel = fitResults.b;  % number of channels
+g = abs( current/(membraneV-reversalV) )*1000;  % conductance, pS
 r2 = gof.rsquare;
-results = {current, nChannel, baseVar_mean, baseVarType, r2, ...
+results = {current, nChannel, g, baseVar_mean, baseVarType, r2, ...
            width(allTraces)-2, length(dropped), ...
            decayStart*100, decayEnd*100, targetReached, nBin};
 
@@ -315,12 +320,13 @@ legend boxoff;
 %% Print fitting results
 
 fprintf('\n---------- Below: %s ----------\n', fname);
-fprintf('i = %0.8f \nN = %0.8f \nR^2 = %0.8f \n', current, nChannel,  r2);
+fprintf('i = %0.6f pA \nN = %0.6f \ng = %0.6f pS \nR^2 = %0.6f \n', ...
+        current, nChannel, g, r2);
 if includeBaseVar
-    fprintf('- Measured baseline variance [%0.8f pA^2] was used for fitting.\n', ...
+    fprintf('- Measured baseline variance [%0.6f pA^2] was used for fitting.\n', ...
             baseVar_mean);
 else
-    fprintf('Estimated baseline variance = %0.8f\n', baseVar_mean);
+    fprintf('Estimated baseline variance = %0.6f\n', baseVar_mean);
 end
 fprintf('- [%d events] found in the recording.\n', width(allTraces)-2);
 fprintf('- [%d events] were excluded from the analysis.\n', length(dropped));

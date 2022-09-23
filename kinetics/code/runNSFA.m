@@ -11,7 +11,7 @@
 % -------------------------------------------------------------------------
 % User settings: See next section
 % -------------------------------------------------------------------------
-% Outputs: - Command window: values for i, N, R^2, etc.
+% Outputs: - Command window: values for i, N, g, R^2, etc.
 %          - Figure*: plot of variance vs mean current and the fitted curve
 %                     and plot of traces analyzed
 %          - nsfaReport.mat*: summary report for NSFA
@@ -28,7 +28,7 @@
 % If running NSFA only on one recording, enter the file name of the 
 %   recording below; otherwise, leave blank for batch analysis.
 % Include '.txt' in file name
-fname = '';
+fname = 'MW181005_01.txt';
 
 % Directory of aligned traces file(s)
 % Must ends in '/'
@@ -41,9 +41,11 @@ tracesDir = 'C:\Users\manho\OneDrive - University of Pittsburgh\data\ELE project
 resultDir = 'C:\Users\manho\OneDrive - University of Pittsburgh\data\ELE project\ephys\analysis\decay_nsfa_results\nsfa\';
 
 % Recording properties
-settings.baseStartT = 0;   % baseline start time, ms
-settings.baseEndT = 4;     % baseline end time, ms
-settings.tailLength = 4;   % tail (end of trace) length, ms
+settings.baseStartT = 0;    % baseline start time, ms
+settings.baseEndT = 4;      % baseline end time, ms
+settings.tailLength = 4;    % tail (end of trace) length, ms
+settings.membraneV = -70;   % membrane potential, mV
+settings.reversalV = 0;     % reversal potential of target channel, mV
 
 %--------------------------------------------------------------------------
 % Fitting preferences
@@ -79,7 +81,7 @@ addpath([cd '/functions']);
 
 % Create a report table
 nsfaReport = table();
-report_columns = {'i, pA', 'N', 'baseVar, pA^2', 'baseVar Type', ...
+report_columns = {'i, pA', 'N', 'g, pS', 'baseVar, pA^2', 'baseVar Type', ...
                   'r^2', 'Total traces', 'Excluded traces', ...
                   'Analysis start, % Peak', 'Analysis end, % Peak', ...
                   'Decay end found, 0 if not', 'Bins'};
