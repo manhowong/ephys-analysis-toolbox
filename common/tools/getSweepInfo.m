@@ -1,8 +1,8 @@
 %% Read each files as cells of chars (required for string slicing later)
 
 opts = delimitedTextImportOptions("NumVariables", 1);
-paths = readmatrix("C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\data\paths.txt", opts);
-fullnames = readmatrix("C:\Users\manho\OneDrive - University of Pittsburgh\M and M\MATLAB scripts\manhoscripts\decayAndNSFA\data\filenames.txt", opts);
+paths = readmatrix("C:\Users\manho\OneDrive - University of Pittsburgh\data\ELE project\ephys\raw\paths.txt", opts);
+fullnames = readmatrix("C:\Users\manho\OneDrive - University of Pittsburgh\data\ELE project\ephys\raw\filenames.txt", opts);
 clear opts
 
 %% Generate a table with recording name, path and range of sweeps
@@ -36,7 +36,7 @@ sweepInfo.pxpPath = replace(sweepInfo.pxpPath, '\', '\\');
 
 %% Save sweepInfo as .txt
 
-writetable(sweepInfo, "sweepInfo.txt");
+writetable(sweepInfo, "C:\Users\manho\OneDrive - University of Pittsburgh\data\ELE project\ephys\raw\sweepInfo.txt");
 
 
 
