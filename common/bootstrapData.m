@@ -17,6 +17,7 @@ function resample = bootstrapData(data, nBoot, nResample, jitter)
 % resample = bootstrapData(data, sd, 100, 500, true);
 
 %%
+has_negative = any(data<0);          % check if data has negative values
 sd = std(data);                      % get S.D. of the data
 resample = zeros(nResample, nBoot);  % Create an nResample-by-nBoot array
                                      %   to store bootstrapped data
@@ -26,12 +27,24 @@ for b= 1:nBoot
     % Simulate jitter if requested by user
     if jitter == true
         % Generate a list of z-scores for each datapoint to simulate jitter
+        % jitter is z*(sd/mean)
         z = zeros(nResample,1);
         for i = 1:nResample
+            % Adding negative jitter may generate negative values. Check if
+            % data allows negative values. If yes, lower limit of z will
+            % just be 95% CI boundary (-1.96); if not, it will be a value
+            % that won't generate a -'ve jitter larger than the datapoint
+            if has_negative
+                z_LowLim = -1.96;
+            else
+                % jitter is z*(sd/mean), it should be greater than -mean
+                z_LowLim = - resample(i,b)/(sd/resample(i,b));
+            end
             % Generate a random z-score from normal distribution; repeat if
-            % it falls outside 95% confidence interval (+/- 1.96)
+            % it falls outside 95% confidence interval (+/- 1.96) or
+            % smaller than a value that generates negative datapoint
             z(i) = randn;
-            while z(i) > 1.96 || z(i) < -1.96
+            while z(i) > 1.96 || z(i) < z_LowLim
                 z(i) = randn;
             end
         end
