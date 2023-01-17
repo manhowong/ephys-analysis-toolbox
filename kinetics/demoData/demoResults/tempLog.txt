@@ -1,3 +1,0 @@
-26-Apr-2022 13:09:56
-../demoData/alignedTraces/ch-ctrl_f_adulttxt not found!
-Script stopped.
