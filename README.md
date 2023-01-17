@@ -92,9 +92,9 @@ For batch processing, you will need **(A)** the raw data files, and **(B)** a fi
 ### A. Raw data files
 
 Each module requires a specific kind of raw data:
-- `kinetics` : Trace of every detected event ([example](\demo_data\event_trace\1.txt))
-- `membrane_props` : Capacitance transient of every sweep ([example](\demo_data\c_transient\1.txt))
-- `mini_props` : Info of every detected event (e.g. peak time, peak amplitude, etc.) ([example](\demo_data\event_info\1.txt))
+- `kinetics` : Trace of every detected event ([example](/demo_data/event_trace/1.txt))
+- `membrane_props` : Capacitance transient of every sweep ([example](/demo_data/c_transient/1.txt))
+- `mini_props` : Info of every detected event (e.g. peak time, peak amplitude, etc.) ([example](/demo_data/event_info/1.txt))
 
 See [`prepare_data.md`](resources/prepare_data.md) for ways to extract raw data from recordings and data specifications.
 
