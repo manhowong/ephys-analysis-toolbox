@@ -1,7 +1,7 @@
 function [filteredTraces, dropped] = dropBadTraces(allTraces,baseStartT,...
                                                    baseEndT,tailLength,...
                                                    sFreq)
-%% Drop bad traces that are not suited for NSFA.
+%% Drop bad traces that are not suited for NSFA/ decay fitting.
 % Criteria of a bad trace:
 %   1 Trace tail falls outside a user-defined range (relative to the
 %     average trace). This indicates unstable recording.
@@ -26,7 +26,7 @@ function [filteredTraces, dropped] = dropBadTraces(allTraces,baseStartT,...
 %          - dropped : a list of traces dropped by the function
 % -------------------------------------------------------------------------
 % Tip: To visually inspect dropped traces, run this function first and then
-%      run ../tools/plotPeaks.m
+%      run ../plotting/plotPeaks.m
 
 %% User settings
 
