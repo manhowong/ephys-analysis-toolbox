@@ -29,7 +29,7 @@ To locate the window, the theoretical amplitude at 95% of peak and at 10% of pea
 
 The trace within the decay window is fitted to a first order exponential function using the non-linear least squares method. The function is shown as below:
 
-$ I = I_0 \cdot e^{-t/tau}$ 
+$I = I_0 \cdot e^{-t/tau}$ 
 
 where $I_0$ is the initial current (i.e. peak).
 

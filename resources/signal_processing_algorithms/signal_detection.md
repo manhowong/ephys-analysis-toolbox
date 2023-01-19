@@ -11,7 +11,7 @@ This page documents the algorithm of signal peak detection, which is implemented
 
 Signal noise is reduced by smoothing the raw trace with a digital low-pass filter ([Savitzky-Golay filter](https://en.wikipedia.org/wiki/Savitzky%E2%80%93Golay_filter)). The default length of window (number of points) used in smoothing is defined as
 
-$ window\:length = sampling\:frequency \times 3 \div 1000 $
+$window\ length = sampling\ frequency \times 3 \div 1000$
 
 > Noise can also be filtered by other types of filters. However, for the purpose of peak detection, they are usually less efficient than signal smoothing.
 

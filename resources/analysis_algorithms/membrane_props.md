@@ -31,7 +31,7 @@ The stable current ($I_{stable}$) is the difference between the baseline and the
 
 The trace within the decay window is fitted to a first order exponential function using the non-linear least squares method. The function is shown as below:
 
-$ I = I_0 \cdot e^{-t/tau}$ 
+$I = I_0 \cdot e^{-t/tau}$ 
 
 where $I_0$ is the initial current (i.e. peak).
 
@@ -40,9 +40,9 @@ where $I_0$ is the initial current (i.e. peak).
 Decay time constant (tau) is obtained directly from the fitting result. Other passive membrane properties are defined as follow:
 
 
-$R_{input} = V_{test\:pulse}/I_{stable}$
+$R_{input} = V_{test\ pulse}/I_{stable}$
 
-$R_{series} = V_{test\:pulse}/I_{peak}$
+$R_{series} = V_{test\ pulse}/I_{peak}$
 
 $C_{membrane} = tau/R_{series}$
 
@@ -54,7 +54,7 @@ $R_{series}$ = series resistance
 
 $C_{membrane}$ = membrane capacitance
 
-$V_{test\:pulse}$ = test pulse size
+$V_{test\ pulse}$ = test pulse size
 
 $I_{stable}$ = stable current (see step 6)
 
