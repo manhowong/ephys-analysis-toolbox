@@ -48,8 +48,13 @@ settings.tailLength = 4;   % tail (end of trace) length, ms
 % Decay phase start point and end point as fractions of avg. peak amplitude
 % e.g. Set them to 1 and 0.1 to analyze from 100% peak to 10% peak.
 % To include whole decay phase for fitting, enter 1 and 0 respectively.
+% WARNING: If you are using narrow decay window for mEPSC decay, the script
+% cannot find a decay window long enough for good fitting (this is due to 
+% the short duration of mEPSCs and relatively low signal-to-noise ratio). 
+% You may receive an "insufficent data" error. To avoid the error, use 
+% broader decay window for mEPSCs (especially for noisy data).
 settings.decayStart = 1;
-settings.decayEnd = 0.1;
+settings.decayEnd = 0;
 
 %% Run fitDecay
 % (No user settings below)

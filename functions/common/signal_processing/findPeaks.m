@@ -11,7 +11,7 @@ function [peaks, smoothTrace, g] = findPeaks(trace,t,sFreq)
 %          - smoothTrace : a column vector of amplitudes of smoothed trace
 %          - g : a column vector of gradients (slope at each sampling pt.)
 % -------------------------------------------------------------------------
-% Tip: It is easier to test this function by running ../tools/plotPeaks.m
+% Tip: It is easier to test this function by running ../plotting/plotPeaks.m
 
 %% User settings
 
@@ -28,7 +28,7 @@ timePerPt = 1/sFreq*1000;    % time duration per sampling point, ms
 decayCheckPt = sFreq*decayCheckLength/1000;  % Sampling point equivalent to decayLength
 smoothWindow = sFreq*3/1000;  % Window for smoothing the trace/gradients
 
-% smooth trace as the theoretical signal without noise
+% smooth trace to get a theoretical signal without noise for peak detection
 smoothTrace = smoothdata(trace, "sgolay", smoothWindow);
 
 % get gradient of each sampling point and correct for time

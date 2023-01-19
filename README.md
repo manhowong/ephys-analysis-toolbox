@@ -66,17 +66,19 @@ This toolbox is primarily designed to process miniature EPSC (mEPSC) data, thoug
 ## 3.2 Installation options
 
 ### A. Install the Toolbox via MATLAB Add-On Explorer
+(Coming Soon)
 1. In MATLAB, go to Home Tab > Add-Ons > Get Add-Ons.
 2. Search for 'Ephys Analysis Toolbox'
 3. On the homepage of this Toolbox, click Add > Add to MATLAB.
 
 ### B. Install the Toolbox by installer
+(Coming Soon)
 1. Download the installer `EphysAnalysisToolbox.mltbx` [here]() or [here]().
 2. Run the installer.
 
 ### C. Use the Toolbox directly without installation
 1. Download the entire Toolbox package [here]().
-2. Add all folders and subfolders to the MATLAB search path every time when you start a new MATLAB session. For example, enter the following command:
+2. Add all folders and subfolders of the package to the MATLAB search path every time when you start a new MATLAB session. You can use the following command:
    ```
    addpath( genpath('path/to/the/package') ) 
    ```
@@ -122,8 +124,8 @@ raw_data/
 ### B. File index
 To identify the recordings, you need to provide an index containing info about the recordings and save it as a `.xlsx` file. It must contains at least the following three columns (with exact same names):
 - `fileName` : FULL file name (must be UNIQUE) e.g. `recording1.txt`.
-- `age` : age of animal in days (must be numeric).
-- `include` : enter `0` to exclude file from analysis, `1` to include. 
+- `age` : Age of animal in days (must be numeric).
+- `include` : Enter `0` to exclude a file from analysis, `1` to include. (For manual data cleaning; If you want to clean data programmatically, enter `1` for all files here and then apply your data cleaning script.)
 
 Example of a file index:
 

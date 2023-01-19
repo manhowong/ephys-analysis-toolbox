@@ -1,25 +1,28 @@
 function results = membraneProps(fname, transientDir, settings)
-%% Compute a recording's passive membrane properties from current transients.
+%% Compute a recording's passive membrane properties from capacitance transients.
 %
 % Man Ho Wong, University of Pittsburgh
 % -------------------------------------------------------------------------
-% File needed: Current transients (.txt)
-%              (See examples in the folder ../demoData/c_transient/)
+% File needed: capacitance transients (.txt)
+%              - See instructions in ../../resources/prepare_data.md
+%              - See examples in: ../../demo_data/c_transient/
 % -------------------------------------------------------------------------
-% Inputs: - fname : file name of rec ording
-%         - transientDir : directory of transient files (must end in '/')
-%         - settings : a struct containing following fields
-%           - settings.tp = test pulse size, mV
-%           - settings.sFreq = sampling frequency, Hz
-%           - settings.baseStartT : baseline start time, ms
-%           - settings.baseEndT : baseline end time, ms
-%           - settings.decayEndT : decay end time, ms
-%           See comments in the code for more info.
+% Input: - fname : file name of recording
+%        - transientDir : directory of transient files (must end in '/')
+%        - settings : a struct containing following fields
+%          - settings.tp = test pulse size, mV
+%          - settings.sFreq = sampling frequency, Hz
+%          - settings.baseStartT : baseline start time, ms
+%          - settings.baseEndT : baseline end time, ms
+%          - settings.decayEndT : decay end time, ms
+%          See comments in the code for more info.
 % -------------------------------------------------------------------------
-% Outputs: - tau: 
-%          - seriesR: 
-%          - membraneC: 
-
+% Output: results : an array containing the following values:
+%                   - series resistance
+%                   - input resistance
+%                   - time constant (tau)
+%                   - membrane capacitance
+%                   - r square of fitting
 
 %% Load file
 
