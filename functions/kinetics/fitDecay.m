@@ -5,18 +5,25 @@ function decayInfo = fitDecay(fname, tracesDir, settings)
 % multiple recordings.
 % Man Ho Wong, University of Pittsburgh, 2022-04-04
 % -------------------------------------------------------------------------
-% File needed: Aligned traces (.txt) by MiniAnalysis software
-%              (See examples in the folder ../demoData/traces/)
+% File needed: Aligned traces (.txt)
+%              - See instructions in ../../resources/prepare_data.md
+%              - See examples in: ../../demo_data/event_trace/
 % -------------------------------------------------------------------------
-% Inputs: - fname : file name of recording
-%         - tracesDir : directory of aligned traces files (must end in '/')
-%         - settings : a struct containing following fields
-%           - settings.baseStartT : baseline start time, ms
-%           - settings.baseEndT : baseline end time, ms
-%           - settings.tailLength : tail (end of trace) length, ms
-%           - settings.decayStart : decay start point, %peak
-%           - settings.decayEnd : decay end point, %peak
-%           See comments in the code for more info.
+% Input: - fname : file name of recording
+%        - tracesDir : directory of aligned traces files (must end in '/')
+%        - settings : a struct containing following fields
+%          - settings.baseStartT : baseline start time, ms
+%          - settings.baseEndT : baseline end time, ms
+%          - settings.tailLength : tail (end of trace) length, ms
+%          - settings.decayStart : decay start point, %peak
+%          - settings.decayEnd : decay end point, %peak
+%            WARNING: If you are using a narrow decay window for mEPSC
+%                     decay, the script cannot find a decay window long
+%                     enough for good fitting (this is due to the short
+%                     duration of mEPSCs and relatively low signal-to-noise
+%                     ratio). You may receive an "insufficent data" error.
+%                     To avoid the error, use broader decay window for
+%                     mEPSCs (especially for noisy data).
 % -------------------------------------------------------------------------
 % Output: - decayInfo : a table containing fitted parameters of each event
 %           - I_0 : initial amplitude
@@ -25,11 +32,12 @@ function decayInfo = fitDecay(fname, tracesDir, settings)
 %           - tau lowLim, tau upLim : lower and upper CI limit for tau
 %           - r^2 : R-squared
 %           - nObs : number of observations
-
+%
+% See comments in the code for more info.
 %% Recording properties
 
 baseStartT = settings.baseStartT;  % baseline start time, ms
-baseEndT = settings.baseEndT;  % baseline length, ms
+baseEndT = settings.baseEndT;      % baseline length, ms
 tailLength = settings.tailLength;  % tail (end of trace) length, ms
 
 %% Fitting preferences (optional)
@@ -48,33 +56,36 @@ if isempty(allTraces)  % stop running if traces not imported
     return; 
 end
 
+settings.sFreq = sFreq; % add sFreq to settings
+
 %% Drop funky traces and traces with more than one event
-allTraces = zeroTraces(allTraces, baseStartT, baseEndT, sFreq);  % zero traces first
+
+% zero every trace first before dropping bad traces:
+% Each trace is shifted by its own baseline's mean value.
+allTraces = zeroTraces(allTraces, baseStartT, baseEndT, sFreq);
+
 [filteredTraces, ~] = dropBadTraces(allTraces, baseStartT, baseEndT,...
                                           tailLength, sFreq);
-zeroedTraces = zeroTraces(filteredTraces, baseStartT, baseEndT, sFreq);
 
-
-t = zeroedTraces.time;
 
 %% fit each trace in zeroedTraces
 
 % Create a table to store decay info
-decayInfo = array2table(zeros(width(zeroedTraces)-2,8), ...
+decayInfo = array2table(zeros(width(filteredTraces)-2,8), ...
                         'VariableNames',{'I_0','I_0 lowLim','I_0 upLim',...
                                          'tau','tau lowLim','tau upLim',...
-                                         'r^2','nObs'});   
-for i = 3:width(zeroedTraces)
-    trace = zeroedTraces{:, i};
-    % Get peak location
-    %   In case more than 1 peak point are found, take the first point
-    peakIdx = find(t == findPeaks(trace, t, sFreq), 1, 'first');
+                                         'r^2','nObs'});
+% time points
+t = filteredTraces.time;
+
+for i = 3:width(filteredTraces)
+    trace = filteredTraces{:, i};
+    [peakIdx, decayStartIdx, decayEndIdx, ~] = findDecayPts(trace,settings);
     % Get decay window and shift window so that t=0 equals decay start point
-    window = t(peakIdx:end) - t(peakIdx);
+    window = t(decayStartIdx:decayEndIdx) - t(peakIdx);
     % Fit decay to first order exponential function
     % I = I_0*exp(-t/tau), where I_0 is initial current
-    [xfit, gof, info] = fit(window,trace(peakIdx:end),'exp1',opt);
-
+    [xfit, gof, info] = fit(window,trace(decayStartIdx:decayEndIdx),'exp1',opt);
     CI = confint(xfit, 0.95);  % 95% confidence intervals
     results = [xfit.a, ...               % I_0
                CI(1,1),CI(2,1), ...      % lower and upper CI limit for I_0
