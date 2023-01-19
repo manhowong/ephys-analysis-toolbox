@@ -7,8 +7,9 @@ function [results, fig] = nsfa(fname, tracesDir, settings)
 % your own script, or use the script "runNSFA.m" to run it automatically.
 % Man Ho Wong, University of Pittsburgh, 2022-04-04
 % -------------------------------------------------------------------------
-% File needed: Aligned traces (.txt) by MiniAnalysis software
-%              (See examples in the folder ../demoData/traces/)
+% File needed: Aligned traces (.txt)
+%              - See instructions in ../../resources/prepare_data.md
+%              - See examples in: ../../demo_data/event_trace/
 % -------------------------------------------------------------------------
 % Fitting options: - window of decay phase to be analyzed
 %                  - binning and bin size
@@ -107,7 +108,15 @@ end
 % allTraces.time = allTraces.time - 14;  % reset time point after truncation
 
 %% Drop funky traces and traces with more than one event
-% zero traces first before dropping bad traces!
+
+% zero every trace first before dropping bad traces:
+% Each trace is shifted by its own baseline's mean value.
+% Note that changing baseline position (defined by baseStartT and baseEndT)
+% will change the 'zero' position, and therefore it will also change the
+% variance-mean relationship. Binning intervals may also differ slightly
+% as amplitude intervals will have different values. Therefore, to get the 
+% consitent fitting results every time, use the same baseline position.
+
 allTraces = zeroTraces(allTraces, baseStartT, baseEndT, sFreq);
 [filteredTraces, dropped] = dropBadTraces(allTraces, baseStartT, baseEndT,...
                                           tailLength, sFreq);
@@ -116,71 +125,22 @@ allTraces = zeroTraces(allTraces, baseStartT, baseEndT, sFreq);
 %   following line:
 % filteredTraces = allTraces;
 
-%% Under development...
-% Check time stability
-% Test for correlations between waveform parameters
-% Re-align events and recalculate avgTrace
-
-%% Zero all traces by original average baseline
-% Traces should have been zeroed to their own baselines by the MiniAnalysis
-% Program, but we don't know what the exact range of baseline the program
-% used to zero the traces, and therefore the baseline position might not be
-% what you want (though the difference is probably very small).
-% Using the zeroTraces function, the baseline position can be adjusted by 
-% shifting all the traces to your desired position (e.g., you want to use 
-% 0 to 4 ms of the average trace as the Baseline position).
-% Note that changing baseline position will change the variance-mean 
-% relationship slightly. Binning will also differ slightly as amplitude
-% intervals will have different values. Therefore, it is recommended to use
-% consistent baseline position to get the same fitting results.
-zeroedTraces = zeroTraces(filteredTraces, baseStartT, baseEndT, sFreq);
-
-%% Find position of the peak of avgTrace
-
-% Peak amplitude of avgTrace
-avgPeak = min(zeroedTraces.avgTrace);
-
-% Position of avgTrace peak
-%   in case more than 1 sampling point matching avgPeak are found, get the
-%   first one
-avgPeakIdx = find(zeroedTraces.avgTrace==avgPeak, 1 , 'first');
-
-%% Find decay phase start point and end point
-
-% Theoretical amplitude at decay phase start / end point
-targetStartAmpl = avgPeak*decayStart;
-targetEndAmpl   = avgPeak*decayEnd;
-
-% Find nearest positions of decay phase start point and end point
-[~, startIdx] = min(abs(avgThreePts(zeroedTraces.avgTrace(avgPeakIdx:end))-targetStartAmpl));
-decayStartIdx = startIdx + (avgPeakIdx - 1);
-[~, endIdx] = min(abs(avgThreePts(zeroedTraces.avgTrace(avgPeakIdx:end))-targetEndAmpl));
-decayEndIdx = endIdx + (avgPeakIdx - 1);
-
-% Check if targetEndAmpl is reached
-%   amplitude nearest to targetEndAmpl
-nearestEndAmpl = zeroedTraces.avgTrace(decayEndIdx);
-%   max. background noise (i.e. max. absolute baseline ampl.) as threshold
-baseStartPt = sFreq*baseStartT/1000 + 1; % Get baseline locations
-baseEndPt = sFreq*baseEndT/1000 + 1;     % Get baseline locations
-detectThreshold = max(abs(zeroedTraces.avgTrace(baseStartPt:baseEndPt)));
-targetReached = true;
-if nearestEndAmpl < targetEndAmpl & ...
-    diff([nearestEndAmpl,targetEndAmpl]) > detectThreshold
-    targetReached = false;
-end
+%% Find peak location and decay window of avgTrace
+[avgPeakIdx,decayStartIdx,decayEndIdx,endReached] = ...
+                           findDecayPts(filteredTraces.avgTrace, settings);
 
 %% Compute variance of amplitude during decay phase
 
 % Peak-scaled method
 % First, scale average trace so that its peak amplitude equals to the
 %   amplitude of the trace being compared to at the same time point
-scaleRatios = zeroedTraces{avgPeakIdx, 3:end}/avgPeak;
-avgTraceAmpl_scaled = zeroedTraces{:, 'avgTrace'}*scaleRatios;
+avgPeak = min(filteredTraces.avgTrace); % Peak amplitude
+scaleRatios = filteredTraces{avgPeakIdx, 3:end}/avgPeak;
+avgTraceAmpl_scaled = filteredTraces{:, 'avgTrace'}*scaleRatios;
 
 % Compute amplitude difference between each trace and the scaled avgTrace
 %   at each sampling point
-ampls = zeroedTraces{:, 3:end};
+ampls = filteredTraces{:, 3:end};
 amplDiff_scaled = ampls - avgTraceAmpl_scaled;
 
 % Compute variance from amplDiff_scaled at each sampling point:
@@ -192,10 +152,14 @@ amplDiff_scaled = ampls - avgTraceAmpl_scaled;
 amplVar_scaled = sum(amplDiff_scaled.^2, 2)/(width(ampls)-1);
 
 % Amplitude and amplitude variance during decay phase
-decayAmpl = zeroedTraces.avgTrace(decayStartIdx:decayEndIdx);
+decayAmpl = filteredTraces.avgTrace(decayStartIdx:decayEndIdx);
 decayVar = amplVar_scaled(decayStartIdx:decayEndIdx);
 
 %% Binning
+
+% Theoretical amplitude at target decay phase start / end point
+targetStartAmpl = avgPeak*decayStart;
+targetEndAmpl   = avgPeak*decayEnd;
 
 skipBin = false;
 if binning == true
@@ -241,7 +205,7 @@ end
 if includeBaseVar == true
 
     % Get amplitude variance without scaling average trace
-    avgTraceAmpl = zeroedTraces{:, 'avgTrace'};  % No need to scale
+    avgTraceAmpl = filteredTraces{:, 'avgTrace'};  % No need to scale
     amplDiff = ampls - avgTraceAmpl;
     amplVar = sum(amplDiff.^2, 2)/(width(ampls)-1);
 
@@ -269,7 +233,7 @@ g = abs( current/(membraneV-reversalV) )*1000;  % conductance, pS
 r2 = gof.rsquare;
 results = {current, nChannel, g, baseVar_mean, baseVarType, r2, ...
            width(allTraces)-2, length(dropped), ...
-           decayStart*100, decayEnd*100, targetReached, nBin};
+           decayStart*100, decayEnd*100, endReached, nBin};
 
 %% Plot fitting results
 
@@ -284,23 +248,23 @@ nexttile;
 hold on;
 
 % Plot all analyzed traces
-for i = 3:width(zeroedTraces)
-    plot(zeroedTraces.time,zeroedTraces.(i), "Color", [.9 .9 .9]);
+for i = 3:width(filteredTraces)
+    plot(filteredTraces.time,filteredTraces.(i), "Color", [.9 .9 .9]);
 end
 
 % Plot avgTrace
-avgLine = plot(zeroedTraces.time,zeroedTraces.avgTrace, LineWidth=1.5, Color='k');
+avgLine = plot(filteredTraces.time,filteredTraces.avgTrace, LineWidth=1.5, Color='k');
 
 % Plot window of analysis
-t1 = zeroedTraces.time(decayStartIdx);
-t2 = zeroedTraces.time(decayEndIdx);
+t1 = filteredTraces.time(decayStartIdx);
+t2 = filteredTraces.time(decayEndIdx);
 window = xline([t1,t2],':', Color='k');           % analysis window
 
 % Figure settings for panel 1
 title('Analyzed traces');
 xlabel('Time (ms)');                              % x-axis title
 ylabel('Amplitude (pA)');                % y-axis title
-xlim([0 max(zeroedTraces.time)]);                % x-axis range equals trace
+xlim([0 max(filteredTraces.time)]);                % x-axis range equals trace
 set(gca,'TickDir','out');                         % axis ticks direction
 legend([avgLine,window(1)], {'Average trace','Analysis start/end point'}, ...
        Location='southeast');                     % legend
@@ -354,7 +318,7 @@ elseif binning
 end
 
 % Warn user if decay may not reach decayEnd
-if targetReached == false
+if endReached == false
     fprintf(['*ATTENTION*\n- Decay may not reach [%d%%] of the peak!\n' ...
              '-- Calculated amplitude at [%d%%] peak: [%0.2f pA]. Nearest amplitude found: [%0.2f pA].\n' ...
              '-- Difference between the two is larger than background noise range,\n' ...
