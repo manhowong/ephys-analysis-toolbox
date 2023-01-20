@@ -23,6 +23,7 @@ function [results, fig] = nsfa(fname, tracesDir, settings)
 %           - settings.tailLength : tail (end of trace) length, ms
 %           - settings.decayStart : Decay phase start point, % peak
 %           - settings.decayEnd : Decay phase end point, % peak
+%           - settings.sFreq : sampling frequency, Hz
 %           - settings.membraneV : membrane potential, mV
 %           - settings.reversalV : reversal potential of target channel, mV
 %           - settings.binning : binning datapoints (true or false)
@@ -41,6 +42,7 @@ function [results, fig] = nsfa(fname, tracesDir, settings)
 baseStartT = settings.baseStartT;  % baseline start time, ms
 baseEndT = settings.baseEndT;      % baseline length, ms
 tailLength = settings.tailLength;  % tail (end of trace) length, ms
+sFreq = settings.sFreq;            % sampling frequency, Hz
 membraneV = settings.membraneV;    % membrane potential, mV
 reversalV = settings.reversalV;    % reversal potential of target channel, mV
 % Note: sFreq (sampling frequency) will be computed from data by
@@ -91,7 +93,7 @@ else % also fit baseVar
 end
 
 %% Read traces from file
-[allTraces, sFreq] = importTraces(fname, tracesDir);
+allTraces = importTraces(fname, tracesDir, sFreq);
 if isempty(allTraces)  % stop running if traces not imported
     results = [];
     fig = [];

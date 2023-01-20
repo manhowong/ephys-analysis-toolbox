@@ -17,6 +17,7 @@ function decayInfo = fitDecay(fname, tracesDir, settings)
 %          - settings.tailLength : tail (end of trace) length, ms
 %          - settings.decayStart : decay start point, %peak
 %          - settings.decayEnd : decay end point, %peak
+%          - settings.sFreq : sampling frequency, Hz
 %            WARNING: If you are using a narrow decay window for mEPSC
 %                     decay, the script cannot find a decay window long
 %                     enough for good fitting (this is due to the short
@@ -39,6 +40,7 @@ function decayInfo = fitDecay(fname, tracesDir, settings)
 baseStartT = settings.baseStartT;  % baseline start time, ms
 baseEndT = settings.baseEndT;      % baseline length, ms
 tailLength = settings.tailLength;  % tail (end of trace) length, ms
+sFreq = settings.sFreq;            % sampling frequency, Hz
 
 %% Fitting preferences (optional)
 
@@ -50,13 +52,11 @@ I_0Thres = -5;
 tauThres = 0;
 
 %% Read traces from file
-[allTraces, sFreq] = importTraces(fname, tracesDir);
+allTraces = importTraces(fname, tracesDir, sFreq);
 if isempty(allTraces)  % stop running if traces not imported
     decayInfo = [];
     return; 
 end
-
-settings.sFreq = sFreq; % add sFreq to settings
 
 %% Drop funky traces and traces with more than one event
 

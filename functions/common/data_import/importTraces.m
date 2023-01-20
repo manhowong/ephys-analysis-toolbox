@@ -1,12 +1,14 @@
-function [allTraces, sFreq] = importTraces(fname, tracesDir)
+function allTraces = importTraces(fname, tracesDir, sFreq)
 %% Import traces into MATLAB from a txt file and detect sampling frequency.
 % Man Ho Wong, University of Pittsburgh, 2022-04-04
 % -------------------------------------------------------------------------
-% File needed: Aligned traces (.txt) by MiniAnalysis software
-%              (See examples in the folder ../demoData/traces/)
+% File needed: Aligned traces (.txt)
+%              - See instructions in ../../resources/prepare_data.md
+%              - See examples in: ../../demo_data/event_trace/
 % -------------------------------------------------------------------------
-% Inputs: - fname : file name of recording
-%         - tracesDir : directory of aligned traces files (must end in '/')
+% Inputs: - fname : file name of recording; char
+%         - tracesDir : directory of aligned traces files; char
+%         - sFreq : sampling frequency, Hz
 % -------------------------------------------------------------------------
 % Outputs: - allTraces : a table containing the following column
 %               - time : time points
@@ -23,22 +25,26 @@ path = genpath(tracesDir);
 addpath(path); 
 
 % Check if file exists
-tracesPath = [tracesDir fname];
-if ~available(tracesPath,'r')
-    allTraces = [];  % return empty array for checking outside the function
-    sFreq = [];  % return empty array for checking outside the function
+tracePath = [tracesDir '/' fname];
+if ~available(tracePath,'r')
+    allTraces = [];  % return empty array
     return;
 end
 
-% if ~isfile(tracesPath)
-%     fprintf(['This file does not exist: %s\n', ...
-%              'Please check if the path is correct.\n'], tracesPath);
-%     allTraces = [];  % return empty array for checking outside the function
-%     sFreq = [];  % return empty array for checking outside the function
-%     return;
-% end
+allTraces = readtable(tracePath, 'ReadVariableNames', false);
 
-allTraces = readtable(tracesPath, 'ReadVariableNames', false);
+%% Insert time and average trace as at the beginning of table
+%  (except for files exported from the Mini Analysis Program; they already
+%  have these two columns)
+
+ opts = detectImportOptions(tracePath);
+ if opts.DataLines(1) ~= 7  % files from Mini Analysis Program has 7 lines
+     intvl = 1/sFreq*1000;
+     time = [0:intvl:intvl*(height(allTraces)-1)]';
+     allTraces = addvars(allTraces,time,'Before','Var1');
+     avgTrace = mean(allTraces{:,3:end},2);
+     allTraces = addvars(allTraces,avgTrace,'after','time');
+ end
 
 %% Add column names
 
@@ -49,8 +55,5 @@ traceID = linspace(1, width(allTraces)-2, width(allTraces)-2)';
 %   1st column is time, 2nd column is the average trace ('avgTrace')
 columnNames = ['time'; 'avgTrace'; cellstr(string(traceID))];
 allTraces.Properties.VariableNames = columnNames;
-
-%%  Compute sampling frequency from time duration per sampling point
-sFreq = 1/(allTraces.time(2)/1000);  % Sampling frequency, Hz
 
 end

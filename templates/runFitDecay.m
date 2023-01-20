@@ -40,6 +40,7 @@ outputDir = 'C:\Users\manho\OneDrive - University of Pittsburgh\data\ELE project
 settings.baseStartT = 0;   % baseline start time, ms
 settings.baseEndT = 4;     % baseline length, ms
 settings.tailLength = 4;   % tail (end of trace) length, ms
+settings.sFreq = 20000;    % sampling frequency, Hz
 
 %--------------------------------------------------------------------------
 % Fitting preferences
