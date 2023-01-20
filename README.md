@@ -12,7 +12,8 @@ January, 2023
 2. [Toolbox contents](#2-toolbox-contents)
 3. [Installation](#3-installation)
 4. [Usage](#4-usage)
-5. [About](#5-about)
+5. [Algorithms](#5-algorithms)
+6. [About](#6-about)
 
 # 1. Overview
 
@@ -187,7 +188,12 @@ Alternatively, you can build your pipeline from scratch, using the functions in 
 > 7. Statistical analysis
 > 8. Export processed data/analysis results
 
-# 5. About
+# 5. Algorithms
+
+- Algorithms for signal processing are explained [here](/resources/signal_processing_algorithms/).
+- Algorithms for ephys. analysis are explained [here](/resources/analysis_algorithms/). 
+
+# 6. About
 
 ## License
 
