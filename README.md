@@ -66,18 +66,16 @@ This toolbox is primarily designed to process miniature EPSC (mEPSC) data, thoug
 ## 3.2 Installation options
 
 ### A. Install the Toolbox via MATLAB Add-On Explorer
-(Coming Soon)
 1. In MATLAB, go to Home Tab > Add-Ons > Get Add-Ons.
 2. Search for 'Ephys Analysis Toolbox'
 3. On the homepage of this Toolbox, click Add > Add to MATLAB.
 
 ### B. Install the Toolbox by installer
-(Coming Soon)
-1. Download the installer `EphysAnalysisToolbox.mltbx` [here]() or [here]().
+1. Download the installer `EphysAnalysisToolbox.mltbx` [here](/EphysAnalysisToolbox.mltbx) or via MATLAB File Exchange.
 2. Run the installer.
 
 ### C. Use the Toolbox directly without installation
-1. Download the entire Toolbox package [here]().
+1. Download the entire Toolbox package from [GitHub](https://github.com/manhowong/ephys-analysis-toolbox).
 2. Add all folders and subfolders of the package to the MATLAB search path whenever you start a new MATLAB session. You can use the following command:
    ```
    addpath( genpath('path/to/the/package') ) 
