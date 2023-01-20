@@ -1,1 +1,1 @@
-# Common code shared by multiple projects
+# Common functions shared by multiple modules

@@ -39,7 +39,7 @@ linkprop([ax.YAxis(1) ax.YAxis(2)],'Limits');
 % Set legend
 if ~isempty(peaks)
     xline(peaks,'--');
-    legend({'Raw trace','Smoothed trace','','Gradient','Peak position'}, Location="best");
+    legend({'Raw trace','Smoothed trace','','Gradient','Peak location'}, Location="best");
 else
     legend({'Raw trace','Smoothed trace','','Gradient'}, Location="best");
 end
