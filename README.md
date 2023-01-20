@@ -1,3 +1,5 @@
+[![View Ephys Analysis Toolbox on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/123630-ephys-analysis-toolbox)
+
 # Ephys Analysis Toolbox
 
 Man Ho Wong  
