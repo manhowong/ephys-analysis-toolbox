@@ -8,3 +8,6 @@ temp/
 private/
 unpublished/
 weifengscripts/
+
+#------------------ files to ignore
+Ephys Analysis Toolbox.prj
