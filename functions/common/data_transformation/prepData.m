@@ -1,4 +1,4 @@
-%% This script loads and cleans data for analysis.
+%% This script loads and combines data from different analyses.
 
 %% Load data and copy data to one table
 

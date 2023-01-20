@@ -6,7 +6,6 @@ function sortedData = importRecordings(idxPath,dataDir)
 % -------------------------------------------------------------------------
 % Inputs: - idxPath : path of the file with info of each recording
 %         - dataDir : path of the data directory
-%         - sessionDir : path of the directory for this analysis session
 % Output: - sortedData : table containing rows as recordings and columns as
 %                        variables; individual files are stored in the
 %                        'events' column

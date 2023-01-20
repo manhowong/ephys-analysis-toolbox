@@ -1,9 +1,10 @@
-%% This is a script for
+%% This is a script for analyzing membrane properties in batch.
 % 
 % Man Ho Wong, University of Pittsburgh, 2022-09-20
 % -------------------------------------------------------------------------
-% Files needed: Current transients (.txt)
-%               (See examples in the folder ../demoData/transient/)
+% File needed: capacitance transient trace files (.txt)
+%              - See instructions in ../../resources/prepare_data.md
+%              - See examples in: ../../demo_data/transient_trace/
 % -------------------------------------------------------------------------
 % User settings: See next section
 % -------------------------------------------------------------------------
@@ -24,14 +25,12 @@
 fname = '';
 
 % Directory of aligned traces file(s)
-% Must ends in '/'
-transientDir = 'C:\Users\manho\OneDrive - University of Pittsburgh\data\ELE project\ephys\raw\c_transient\';
+transientDir = 'path/to/transient_trace_files';
 
 % Directory where you want the script to create and store the results
-%   ATTENTION: If this directory already exists, all files in it will be 
-%              overwritten! Use a different name if needed.
-% Must ends in '/'
-outputDir = 'C:\Users\manho\OneDrive - University of Pittsburgh\data\ELE project\ephys\analysis\membrane_props\';
+%   ATTENTION: If this directory already exists, files with same names will 
+%              be overwritten. Use a different name if needed.
+outputDir = 'path/to/output_directory';
 
 % Recording properties
 settings.tp = -5;
@@ -47,8 +46,6 @@ settings.decayEndT = 150;
 % progress window
 progress = 0;
 wait = waitbar(0,'Start fitting...');
-
-addpath(genpath('C:\Users\manho\OneDrive - University of Pittsburgh\code\ephys-analysis')); 
 
 % Create a report table
 memPropReport = table();
