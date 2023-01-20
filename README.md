@@ -155,17 +155,18 @@ Instructions for each template are included in the file itself.
 
 ## 4.3 Export the processed data/ analysis results
 
-- The above script templates and some functions require you to specify an output folder to where the output files (processed data or analysis results) will be exported.
-    - If the output folder does not exist, the scripts/functions will create the folder automatically.
-    - If the output folder already exists, new output files will overwrite existing ones if they have identical names. Change to another folder unless you want to update the output files.
-- Output file names are generated automatically.
+- Some functions require you to provide a folder (`outputDir`) for file export:
+    - If the folder does not exist, the folder will be created at the provided location.
+    - If the folder already exists, new output files will overwrite existing ones with identical names.
+- Output subfolder names and file names are generated automatically.
 
-> Some output files/variables can be read automatically for further processing. To avoid errors:
-> - Do NOT rename variables inside a `.mat` file
-> - Do NOT rename the following `.mat` files (unless you need to update the group names):
->    - `cdfParamsAndXyValues_\<group name\>.mat`
->    - `ieistats_all.mat`
->    - `gammastats_all.mat`
+    > **Renaming output folders and files**  
+    > For the Toolbox to recognize the processed data:
+    > - Do NOT rename variables inside a `.mat` file
+    > - Do NOT rename the following subfolders or files unless you need to update the group names:
+    >    - `cdfParamsAndXyValues_<group name>.mat`
+    >    - `<group name>` subfolders inside `exp_cdf` folder
+    >    - `<group name>` subfolders inside `gamma_cdf` folder
 
 ## 4.4 Optional: Build your own analysis pipeline
 
