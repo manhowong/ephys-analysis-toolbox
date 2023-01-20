@@ -3,7 +3,7 @@
 Man Ho Wong  
 Xu Lab, Department of Neuroscience, University of Pittsburgh.
 
-Signals are inspected before analysis to exclude noisy/ unstable traces and traces with overlapping events from analysis.
+Signals are inspected before analysis to exclude noisy/ unstable traces and traces with overlapping events from the analysis.
 
 This page documents the algorithm of signal inspection, which is implemented through the function [`dropBadTraces.m`](../../functions/common/signal_processing/dropBadTraces.m).
 
@@ -43,20 +43,20 @@ A trace without detectable events ↓
 ## 1. Find unstable traces 
 
 Unstable traces are defined as:
-- traces with tails (ending region of trace) outside of a user-defined range (e.g. one standard deviation of tail amplitude)
-- traces with baseline ouside the same range as for tails (This indicates a significant change in baseline during the timecourse of the trace).
+- traces with tails (ending region of the trace) outside of a user-defined range (e.g. one standard deviation of tail amplitude)
+- traces with baseline outside the same range as for tails (This indicates a significant change in baseline during the time course of the trace).
 
 ## 2. Find traces with no event or with multiple peaks (i.e. overlapping events)
 
-See [signal_detection.md](/signal_detection.md) for detection of peaks.
+See [signal_detection.[md](/signal_detection.md) for the detection of peaks.
 
-## 3. Drop traces found in step 1 and 2
+## 3. Drop traces found in steps 1 and 2
 
-## 4. Compute average trace
+## 4. Compute the average trace
 
-## 5. Find the peak location of average trace (average peak)
+## 5. Find the peak location of the average trace (average peak)
 
-## 6. Find traces with peak occurring 1 ms or later after the  peak of average trace
+## 6. Find traces with peaks occurring 1 ms or later after the peak of the average trace
 
 ## 7. Drop traces found in step 6
 

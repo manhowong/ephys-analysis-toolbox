@@ -9,27 +9,27 @@ This page documents the algorithm of membrane properties analysis, which is impl
 
 ## 1. Zero every trace
 
-Zero every trace of capacitance transient by the average amplitude of its own baseline (defined by user, e.g. 0 to 4 ms of the trace).
+Zero every trace of capacitance transient by the average amplitude of its own baseline (defined by the user, e.g. 0 to 4 ms of the trace).
 
-## 2. Get average trace
+## 2. Get the average trace
 
 ## 3. Determine transient peak direction by test pulse direction
 
-## 4. Find peak location
+## 4. Find the peak location
 
-The location of first transient peak is defined as the first sampling point with either minimum or maximum value depending on peak direction.
+The location of the first transient peak is defined as the first sampling point with either minimum or maximum value depending on peak direction.
 
-## 5. Locate decay window
+## 5. Locate the decay window
 
-The decay window is defined as the peak location to an user-defined end point (this depends on the length of test pulse).
+The decay window is defined as the decay from the peak location to the user-defined end point (this depends on the length of test pulse).
 
-## 6. Zero trace in decay window to stable current
+## 6. Zero the trace in the decay window to the stable current
 
 The stable current ($I_{stable}$) is the difference between the baseline and the last 10 sampling points of the decay window.
 
-## 7. Fit decay to first order exponential function
+## 7. Fit decay to a first-order exponential function
 
-The trace within the decay window is fitted to a first order exponential function using the non-linear least squares method. The function is shown as below:
+The trace within the decay window is fitted to a first-order exponential function using the non-linear least squares method. The function is shown below:
 
 $I = I_0 \cdot e^{-t/tau}$ 
 
@@ -37,7 +37,7 @@ where $I_0$ is the initial current (i.e. peak).
 
 ## 8. Compute passive membrane properties
 
-Decay time constant (tau) is obtained directly from the fitting result. Other passive membrane properties are defined as follow:
+The decay time constant (tau) is obtained directly from the fitting result. Other passive membrane properties are defined as follows:
 
 
 $R_{input} = V_{test\ pulse}/I_{stable}$

@@ -15,11 +15,11 @@ This algorithm is an optimized implementation of the analysis procedures describ
 
 ![NSFA Flowchart](../img/nsfa_flowchart.svg)
 
-## 1. Align traces by the point of fastest rise
+## 1. Align events by the point of fastest rise
 
-Traces can be aligned by the point of fastest rise. (See [`prepare_data.md`](../prepare_data.md))
+Events must be aligned by the point of fastest rise. (See [`prepare_data.md`](../prepare_data.md))
 
-All traces should have the same length of baseline and the same total trace length. (For demo data, the baseline is 4 ms and the total trace length is 44.75 ms. Nearly all events decay back to baseline within this time window.)
+All traces should have the same total trace length after alignment. (For demo data, the total trace length is 44.75 ms. Nearly all events decay back to baseline within this time window.)
 
 Example of aligned traces and the average trace ↓
 
