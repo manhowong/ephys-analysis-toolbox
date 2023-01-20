@@ -2,16 +2,16 @@ function [peaks, smoothTrace, g] = findPeaks(trace,t,sFreq)
 %% This function detects approx. positions of downward peaks in a trace.
 % Man Ho Wong, University of Pittsburgh, 2022-05-25
 % -------------------------------------------------------------------------
-% Inputs: - trace : a column vector of amplitudes
-%         - t : a column vector of time points, ms
-%         - sFreq : sampling frequency, kHz
+% Input: - trace : a column vector of amplitudes
+%        - t : a column vector of time points, ms
+%        - sFreq : sampling frequency, kHz
 % *trace and t must have the same length!
 % -------------------------------------------------------------------------
-% Outputs: - peaks : a column vector of peak locations, ms
-%          - smoothTrace : a column vector of amplitudes of smoothed trace
-%          - g : a column vector of gradients (slope at each sampling pt.)
+% Output: - peaks : a column vector of peak locations, ms
+%         - smoothTrace : a column vector of amplitudes of smoothed trace
+%         - g : a column vector of gradients (slope at each sampling pt.)
 % -------------------------------------------------------------------------
-% Tip: It is easier to test this function by running ../plotting/plotPeaks.m
+% Tip: Test this function by running ../plotting/plotPeaks.m
 
 %% User settings
 

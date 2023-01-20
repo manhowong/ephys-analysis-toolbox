@@ -1,21 +1,22 @@
 %% This is a script for fitting mEPSC decay.
-% Each mEPSC event will be fitted to a first order exponential function.
+% Every mEPSC event will be fitted to a first-order exponential function.
 % This script runs fitDecay.m automatically on one recording or a group of 
 % recordings in a folder.
 % Man Ho Wong, University of Pittsburgh, 2022-04-18
 % -------------------------------------------------------------------------
-% Files needed: Aligned traces (.txt) by MiniAnalysis software
-%               (See examples in the folder ../demoData/traces/)
+% File needed: Aligned event traces (.txt)
+%              - See instructions in ../../resources/prepare_data.md
+%              - See examples in: ../../demo_data/event_trace/
 % -------------------------------------------------------------------------
 % User settings: See next section
 % -------------------------------------------------------------------------
-% Outputs: - decayReport.mat* : analysis report
+% Outputs: - decayReport.mat* : analysis report (see below)
 %            - events : contains fitted parameters of each event
 %            - meanI0 : mean of initial amplitude (I0)
 %            - meanTau : mean of time constant (Tau)
 %            - sdI0 : standard deviation of I0
 %            - sdTau : standard deviation of Tau
-% *Report is saved in user-designated folder (see below).
+% *Report is saved in a user-designated folder (see below).
 
 %% User settings
 % Specify your file directories and preferences below.
@@ -28,13 +29,11 @@
 % Include '.txt' in file name
 fname = '';
 
-% Directory of aligned traces file(s)
-% Must ends in '/'
-tracesDir = 'C:\Users\manho\OneDrive - University of Pittsburgh\data\ELE project\ephys\raw\event_trace\';
+% Directory of aligned event traces file(s)
+tracesDir = 'path/to/event_trace_files';
 
 % Directory to store results
-% Must ends in '/'
-outputDir = 'C:\Users\manho\OneDrive - University of Pittsburgh\data\ELE project\ephys\analysis\decay_nsfa_results\decay_new\';
+outputDir = 'path/to/output_directory';
 
 % Recording properties
 settings.baseStartT = 0;   % baseline start time, ms

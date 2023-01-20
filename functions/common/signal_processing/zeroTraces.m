@@ -2,13 +2,13 @@ function zeroedTraces = zeroTraces(allTraces, baseStartT, baseEndT, sFreq)
 %% Zero every trace in a recording by its own baseline.
 % Man Ho Wong, University of Pittsburgh, 2022-04-18
 % -------------------------------------------------------------------------
-% Inputs: - allTraces : traces of a recording; imported into MATLAB by
+% Input: - allTraces : traces of a recording; imported into MATLAB by
 %                       importTraces.m
-%         - baseStartT : baseline start time, ms
-%         - baseEndT : baseline end time, ms
-%         - sFreq : sampling frequency, Hz
+%        - baseStartT : baseline start time, ms
+%        - baseEndT : baseline end time, ms
+%        - sFreq : sampling frequency, Hz
 % -------------------------------------------------------------------------
-% Outputs: - zeroedTraces : allTraces zeroed
+% Output: - zeroedTraces : allTraces zeroed
 
 %% Get mean amplitude of original baseline of every trace
 

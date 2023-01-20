@@ -1,14 +1,17 @@
 function groupData = applyFilters(targetData,groupIndex,fileIndex,groupName)
-%% Filter data in sortedData by grouping factors defined in groupIndex.
+%% Extract data in sortedData by grouping factors defined in groupIndex.
+% The target group (specified by group name) will be extracted.
 % Man Ho Wong, University of Pittsburgh.
 % -------------------------------------------------------------------------
-% Inputs: - targetData : data to be filtered;
-%                        must have file names as row names,
-%                        or file names stored in a column named 'fileName'
-%         - groupIndex : A table containing grouping info;
-%                        can be generated with addGroup.m
-%         - groupName : Name of the group (in groupIndex) to be filtered
-% Output: - groupData : Data filtered by grouping factors in groupIndex.
+% Input: - targetData : data to be filtered;
+%                       must have file names as row names,
+%                       or file names stored in a column named 'fileName'
+%        - groupIndex : A table containing grouping info;
+%                       can be generated with addGroup.m
+%        - fileIndex : A table containing file info;
+%                      can be imported from xlsx file by readIndex.m
+%        - groupName : Name of the target group (in groupIndex)
+% Output: - groupData : Data from the group specified by groupName
 
 %% Check if groupName is correct
 

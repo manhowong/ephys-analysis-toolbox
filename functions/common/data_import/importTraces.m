@@ -2,7 +2,7 @@ function allTraces = importTraces(fname, tracesDir, sFreq)
 %% Import traces into MATLAB from a txt file and detect sampling frequency.
 % Man Ho Wong, University of Pittsburgh, 2022-04-04
 % -------------------------------------------------------------------------
-% File needed: Aligned traces (.txt)
+% File needed: aligned event traces (.txt)
 %              - See instructions in ../../resources/prepare_data.md
 %              - See examples in: ../../demo_data/event_trace/
 % -------------------------------------------------------------------------

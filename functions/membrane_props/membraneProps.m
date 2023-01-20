@@ -5,7 +5,7 @@ function results = membraneProps(fname, transientDir, settings)
 % -------------------------------------------------------------------------
 % File needed: capacitance transients (.txt)
 %              - See instructions in ../../resources/prepare_data.md
-%              - See examples in: ../../demo_data/c_transient/
+%              - See examples in: ../../demo_data/transient_trace/
 % -------------------------------------------------------------------------
 % Input: - fname : file name of recording
 %        - transientDir : directory of transient files (must end in '/')
@@ -27,7 +27,7 @@ function results = membraneProps(fname, transientDir, settings)
 %% Load file
 
 % Check if file exists
-path = [transientDir fname];
+path = [transientDir '/' fname];
 
 if ~available(path,'r')
     results = []; % return empty array for checking outside the function

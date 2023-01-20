@@ -1,13 +1,14 @@
 function resample = bootstrapData(data, nBoot, nResample, jitter)
 %% Bootstrap an 1-column array of data and add simulated jitter(optional).
 % Data points will be sampled from the input data randomly with
-% replacement. Jitter
+% replacement. Users have the option to add jitter (random z-score times
+% the coefficient variance of each data point).
 % -------------------------------------------------------------------------
-% Inputs: - data : an one-column array of data points
-%         - sd : standard deviation of input data
-%         - nBoot : number of bootstrap runs
-%         - nResample : number of data points to be sampled from input data
-%         - jitter : add simulated jitter to resampled data points
+% Input: - data : an one-column array of data points
+%        - sd : standard deviation of input data
+%        - nBoot : number of bootstrap runs
+%        - nResample : number of data points to be sampled from input data
+%        - jitter : add simulated jitter to resampled data points
 % -------------------------------------------------------------------------
 % Output: - resample : bootstrapped data
 % -------------------------------------------------------------------------

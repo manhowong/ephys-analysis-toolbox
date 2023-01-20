@@ -6,8 +6,9 @@
 % recordings in a folder.
 % Man Ho Wong, University of Pittsburgh, 2022-04-18
 % -------------------------------------------------------------------------
-% Files needed: Aligned traces (.txt) by MiniAnalysis software
-%               (See examples in the folder ../demoData/traces/)
+% File needed: Aligned event traces (.txt)
+%              - See instructions in ../../resources/prepare_data.md
+%              - See examples in: ../../demo_data/event_trace/
 % -------------------------------------------------------------------------
 % User settings: See next section
 % -------------------------------------------------------------------------
@@ -31,14 +32,12 @@
 fname = '';
 
 % Directory of aligned traces file(s)
-% Must ends in '/'
-tracesDir = 'C:\Users\manho\OneDrive - University of Pittsburgh\data\ELE project\ephys\raw\event_trace\new\';
+tracesDir = 'path/to/event_trace_files';
 
 % Directory where you want the script to create and store the results
-%   ATTENTION: If this directory already exists, all files in it will be 
-%              overwritten! Use a different name if needed.
-% Must ends in '/'
-outputDir = 'C:\Users\manho\OneDrive - University of Pittsburgh\data\ELE project\ephys\analysis\decay_nsfa_results\nsfa_new\';
+%   ATTENTION: If this directory already exists, all files with same name
+%              will be overwritten. Use a different name if needed.
+outputDir = 'path/to/output_directory';
 
 % Recording properties
 settings.baseStartT = 0;    % baseline start time, ms

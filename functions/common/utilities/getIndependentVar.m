@@ -3,11 +3,11 @@ function varList = getIndependentVar(fileIndex,var2remove)
 % Independent variables are the factors for grouping data.
 % Man Ho Wong, University of Pittsburgh.
 % -------------------------------------------------------------------------
-% Inputs: - fileIndex : A table containing file info;
-%                       can be imported from xlsx file by readIndex.m
-%         - var2remove : A cell array of variables to be excluded, e.g.:
-%                          {'fileName','mouseID','recordDate','DOB', ...
-%                           'age','include','events','meanValue'}
+% Input: - fileIndex : A table containing file info;
+%                      can be imported from xlsx file by readIndex.m
+%        - var2remove : A cell array of variables to be excluded, e.g.:
+%                         {'fileName','mouseID','recordDate','DOB', ...
+%                         'age','include','events','meanValue'}
 % Output: - varList : a cell array of independent variables
 
 %%

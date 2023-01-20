@@ -101,28 +101,28 @@ Each module requires a specific type of raw data as input:
 | `membrane_props` | Trace of capacitance transient ([example](/demo_data/transient_trace/1.txt)) |
 | `mini_props`     | Properties of detected event ([example](/demo_data/event_props/1.txt))       |
 
-See [`prepare_data.md`](resources/prepare_data.md) for ways to extract raw data from recordings and data specifications.
+See [`prepare_data.md`](resources/prepare_data.md) for data specifications.
 
 File naming and organization:
 - Raw data files should be saved in `.txt` format.
 - To associate a raw data file with the recording where its data was extracted from, the file should be named after the recording (e.g. name or ID of the recording file). Therefore, two files should have an identical name if both contain data extracted from the same recording.
 - Organize raw data files by the kind of data they contain, for example:
 
-```
-raw_data/                 
-|---transient_trace/       # Traces of capacitance transients
-|   |---recording1.txt
-|   |---recording2.txt
-|   |---recording3.txt
-|---event_props/           # Properties of every detected events
-|   |---recording1.txt
-|   |---recording2.txt
-|   |---recording3.txt
-|---event_trace/           # Traces of detected events
-    |---recording1.txt
-    |---recording2.txt
-    |---recording3.txt
-```
+    ```
+    raw_data/                 
+    |---transient_trace/       # Traces of capacitance transients
+    |   |---recording1.txt
+    |   |---recording2.txt
+    |   |---recording3.txt
+    |---event_props/           # Properties of every detected events
+    |   |---recording1.txt
+    |   |---recording2.txt
+    |   |---recording3.txt
+    |---event_trace/           # Traces of detected events
+        |---recording1.txt
+        |---recording2.txt
+        |---recording3.txt
+    ```
 
 ### B. File index
 To identify the recordings, you need to provide an index containing info about the recordings and save it as a `.xlsx` file. It must contain at least the following three columns (with exact same names):
@@ -173,15 +173,16 @@ You can build your analysis pipeline by modifying any of the above templates. Yo
 
 Inside each module's folder (e.g. [`/functions/kinetics`](/functions/kinetics/)), you will find functions that can be used directly to analyze one recording file (e.g. `nsfa.m`) or one group of recordings (e.g. `fitGroupDist.m`). For batch processing, you just need to run these functions iteratively on multiple recordings or groups (This is basically what the above templates do: e.g. `runNSFA.m` runs `nsfa.m` iteratively).
 
+> **Build from scratch**  
 Alternatively, you can build your pipeline from scratch, using the functions in [`/functions/common/`](/functions/common/). The general steps are:
-1. Import the raw data
-2. Signal processing (e.g. detect peaks, compute frequency/IEI, etc.)
-3. Transform data (e.g. merge datasets, bootstrap the data, etc.)
-4. Signal analysis (e.g. decay fitting, NSFA, etc.)
-5. Clean data (e.g. remove outliers, etc.)
-6. Sort processed data (e.g. group data by conditions)
-7. Statistical analysis
-8. Export processed data/analysis results
+> 1. Import the raw data
+> 2. Signal processing (e.g. detect peaks, compute frequency/IEI, etc.)
+> 3. Transform data (e.g. merge datasets, bootstrap the data, etc.)
+> 4. Signal analysis (e.g. decay fitting, NSFA, etc.)
+> 5. Clean data (e.g. remove outliers, etc.)
+> 6. Sort processed data (e.g. group data by conditions)
+> 7. Statistical analysis
+> 8. Export processed data/analysis results
 
 # 5. About
 
