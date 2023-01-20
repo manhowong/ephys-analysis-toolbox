@@ -8,13 +8,15 @@ January, 2023
 
 ## Table of contents
 
-1. [Introduction](#1-introduction)
+1. [Overview](#1-overview)
 2. [Toolbox contents](#2-toolbox-contents)
 3. [Installation](#3-installation)
 4. [Usage](#4-usage)
 5. [About](#5-about)
 
-# 1. Introduction
+# 1. Overview
+
+<p style="text-align:center;"><img src="resources/img/toolbox.jpg" width="500"></p>
 
 Ephys Analysis Toolbox is an open-source MATLAB toolbox for batch processing of postsynaptic current (PSC) data. The Toolbox is organized into three modules, each comprising a collection of functions for different analyses:
 - `kinetics` : for event decay analysis and non-stationary fluctuation analysis (NSFA).
