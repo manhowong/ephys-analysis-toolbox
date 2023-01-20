@@ -14,12 +14,12 @@ January, 2023
 
 # 1. Introduction
 
-Ephys Analysis Toolbox is an open-source MATLAB toolbox for batch processing of postsynaptic current (PSC) data. The Toolbox is organized into three modules, each comprises a collection of functions for different analyses:
+Ephys Analysis Toolbox is an open-source MATLAB toolbox for batch processing of postsynaptic current (PSC) data. The Toolbox is organized into three modules, each comprising a collection of functions for different analyses:
 - `kinetics` : for event decay analysis and non-stationary fluctuation analysis (NSFA).
 - `membrane_props` : for passive membrane properties analysis.
 - `mini_props` : for mEPSC frequency and amplitude analysis.
 
-The Toolbox also comes with read-to-use templates and demo data. See the [Usage](#4-usage) section for more info.
+The Toolbox also comes with ready-to-use templates and demo data. See the [Usage](#4-usage) section for more info.
 
 This toolbox is primarily designed to process miniature EPSC (mEPSC) data, though some functions can also be used to process other types of PSC data if the data format is compatible (for example, you can use it to analyze passive membrane properties of evoked EPSC recordings as long as you can provide the capacitance transient of each sweep).
 
@@ -29,8 +29,8 @@ This toolbox is primarily designed to process miniature EPSC (mEPSC) data, thoug
 (only top two levels are shown)
 ./
  |---demo_data/               # Sample recordings for demonstration
- |   |---c_transient/         # Capacitance transient of every sweep
- |   |---event_info/          # Info of every detected event
+ |   |---transient_trace/     # Capacitance transient of every sweep
+ |   |---event_props/         # Info of every detected event
  |   |---event_trace/         # Trace of every detected event
  |   |---fileIndex.xlsx       # Recording information
  |
@@ -78,7 +78,7 @@ This toolbox is primarily designed to process miniature EPSC (mEPSC) data, thoug
 
 ### C. Use the Toolbox directly without installation
 1. Download the entire Toolbox package [here]().
-2. Add all folders and subfolders of the package to the MATLAB search path every time when you start a new MATLAB session. You can use the following command:
+2. Add all folders and subfolders of the package to the MATLAB search path whenever you start a new MATLAB session. You can use the following command:
    ```
    addpath( genpath('path/to/the/package') ) 
    ```
@@ -87,42 +87,45 @@ This toolbox is primarily designed to process miniature EPSC (mEPSC) data, thoug
 
 ## 4.1 Prepare data
 
-For batch processing, you will need **(A)** the raw data files, and **(B)** a file index which provides infomation for the identification of recordings.
+For batch processing, you will need **(A)** the raw data files, and **(B)** a file index that provides information for the identification of recordings.
 
 > To get a sense of how the files should look like, check out the [demo data](/demo_data). This dataset was extracted from 10 sample recordings and is ready for analysis. 
 
 ### A. Raw data files
 
-Each module requires a specific kind of raw data:
-- `kinetics` : Trace of every detected event ([example](/demo_data/event_trace/1.txt))
-- `membrane_props` : Capacitance transient of every sweep ([example](/demo_data/c_transient/1.txt))
-- `mini_props` : Info of every detected event (e.g. peak time, peak amplitude, etc.) ([example](/demo_data/event_info/1.txt))
+Each module requires a specific type of raw data as input:
+
+| Module           | Data type                                                                    |
+|------------------|------------------------------------------------------------------------------|
+| `kinetics`       | Trace of detected event ([example](/demo_data/event_trace/1.txt))            |
+| `membrane_props` | Trace of capacitance transient ([example](/demo_data/transient_trace/1.txt)) |
+| `mini_props`     | Properties of detected event ([example](/demo_data/event_props/1.txt))       |
 
 See [`prepare_data.md`](resources/prepare_data.md) for ways to extract raw data from recordings and data specifications.
 
 File naming and organization:
 - Raw data files should be saved in `.txt` format.
-- To associate a raw data file with the recording where its data was extracted from, the file should be named after the recording (e.g. name or ID of the recording file). Therefore, two files should have the identical name if both contain data extracted from the same recording.
+- To associate a raw data file with the recording where its data was extracted from, the file should be named after the recording (e.g. name or ID of the recording file). Therefore, two files should have an identical name if both contain data extracted from the same recording.
 - Organize raw data files by the kind of data they contain, for example:
 
 ```
 raw_data/                 
-|---c_transient/           # Capacitance transient of every sweep
+|---transient_trace/       # Traces of capacitance transients
 |   |---recording1.txt
 |   |---recording2.txt
 |   |---recording3.txt
-|---event_info/            # Info of every detected event
+|---event_props/           # Properties of every detected events
 |   |---recording1.txt
 |   |---recording2.txt
 |   |---recording3.txt
-|---event_trace/           # Trace of every detected event
+|---event_trace/           # Traces of detected events
     |---recording1.txt
     |---recording2.txt
     |---recording3.txt
 ```
 
 ### B. File index
-To identify the recordings, you need to provide an index containing info about the recordings and save it as a `.xlsx` file. It must contains at least the following three columns (with exact same names):
+To identify the recordings, you need to provide an index containing info about the recordings and save it as a `.xlsx` file. It must contain at least the following three columns (with exact same names):
 - `fileName` : FULL file name (must be UNIQUE) e.g. `recording1.txt`.
 - `age` : Age of animal in days (must be numeric).
 - `include` : Enter `0` to exclude a file from analysis, `1` to include. (For manual data cleaning; If you want to clean data programmatically, enter `1` for all files here and then apply your data cleaning script.)
@@ -152,7 +155,7 @@ Instructions for each template are included in the file itself.
 
 ## 4.3 Export the processed data/ analysis results
 
-- The above script templates and some functions require you to specify an output folder where the output files (processed data or analysis results) will be exported to.
+- The above script templates and some functions require you to specify an output folder to where the output files (processed data or analysis results) will be exported.
     - If the output folder does not exist, the scripts/functions will create the folder automatically.
     - If the output folder already exists, new output files will overwrite existing ones if they have identical names. Change to another folder unless you want to update the output files.
 - Output file names are generated automatically.
@@ -166,7 +169,7 @@ Instructions for each template are included in the file itself.
 
 ## 4.4 Optional: Build your own analysis pipeline
 
-You can build your analysis pipeline by modifying any of the above templates. You can also create new pipeline from scratch using the functions in this Toolbox.
+You can build your analysis pipeline by modifying any of the above templates. You can also create a new pipeline from scratch using the functions in this Toolbox.
 
 Inside each module's folder (e.g. [`/functions/kinetics`](/functions/kinetics/)), you will find functions that can be used directly to analyze one recording file (e.g. `nsfa.m`) or one group of recordings (e.g. `fitGroupDist.m`). For batch processing, you just need to run these functions iteratively on multiple recordings or groups (This is basically what the above templates do: e.g. `runNSFA.m` runs `nsfa.m` iteratively).
 
@@ -198,7 +201,7 @@ Code for CDF fitting was adapted from:
 **Liu, M., Lewis, L. D., Shi, R., Brown, E. N., & Xu, W. (2014).** Differential requirement for NMDAR activity in SAP97β-mediated regulation of the number and strength of glutamatergic AMPAR-containing synapses. Journal of Neurophysiology, 111(3), 648–658. https://doi.org/10.1152/jn.00262.201
 
 
-## Acknowledgement
-We would like to thank the members of Schlueter Lab at the University of Pittsburgh, USA and University of Goettingen, Germany for their valuable input on the algorithm of NSFA.
+## Acknowledgment
+We would like to thank the members of Schlueter Lab at the University of Pittsburgh, USA and the University of Goettingen, Germany for their valuable input on the algorithm of NSFA.
 
 

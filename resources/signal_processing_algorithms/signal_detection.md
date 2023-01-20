@@ -9,7 +9,7 @@ This page documents the algorithm of signal peak detection, which is implemented
 
 ## 1. Noise reduction
 
-Signal noise is reduced by smoothing the raw trace with a digital low-pass filter ([Savitzky-Golay filter](https://en.wikipedia.org/wiki/Savitzky%E2%80%93Golay_filter)). The default length of window (number of points) used in smoothing is defined as
+Signal noise is reduced by smoothing the raw trace with a digital low-pass filter ([Savitzky-Golay filter](https://en.wikipedia.org/wiki/Savitzky%E2%80%93Golay_filter)). The default length of the window (number of points) used in smoothing is defined as
 
 $window\ length = sampling\ frequency \times 3 \div 1000$
 
@@ -19,9 +19,7 @@ $window\ length = sampling\ frequency \times 3 \div 1000$
 
 Finite differences are used for the approximation of derivatives. For interior sampling points, central differences are computed. For the first and last sampling points, single-sided differences are computed. For more info, see [this](https://www.mathworks.com/help/matlab/ref/gradient.html#bvifdfu-5) and [this](https://en.wikipedia.org/wiki/Finite_difference). 
 
-Numerical gradients are computed as described above with a point spacing of one. Then, the gradients are corrected to the actual time interval between two points.
-
-This step generate an array of gradients for each trace.
+Numerical gradients are computed as described above with a point spacing of one. Then, the gradients are corrected to the actual time interval between two points. This step generates an array of gradients for each trace.
 
 ## 3. Smooth gradient array
 
