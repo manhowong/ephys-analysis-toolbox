@@ -1,21 +1,19 @@
-function [allparams,allgof,allxTrunc] = fitEachRecGamma(sortedData,groupIndex,fileIndex, ...
+function [allparams,allgof,allxTrunc] = fitEveryCDFGamma(sortedData,groupIndex,fileIndex, ...
                                               groupName,outputDir)
-%% Fit each recording of a group to truncated gamma model.
-% This function requires data organized in Man Ho's data structure (see
-% analyzeMini.mlx). It runs the function gammafit on each recording of a
-% user-defined group. Graphs and parameter values of left-truncated gamma
-% model for each recording are generated.
+%% Fit every recording of a group to truncated gamma model.
+% This function runs gammafit.m on every recording of the target group.
+% Graphs and CDF parameters for each recording will be generated.
 % Man Ho Wong, University of Pittsburgh.
 % -------------------------------------------------------------------------
-% Inputs: - sortedData : must have file names as row names,
-%                        or file names stored in a column named 'fileName'
-%         - groupIndex : A table containing grouping info;
-%                        can be generated with addGroup.m
-%         - fileIndex : A table containing file info;
-%                       can be imported into MATLAB with readIndex.m
-%         - groupName : Name of the group (in groupIndex) to be filtered
-%         - outputDir : directory to store output data
-% Outputs:
+% Input: - sortedData : must have file names as row names,
+%                       or file names stored in a column named 'fileName'
+%        - groupIndex : A table containing grouping info;
+%                       can be generated with addGroup.m
+%        - fileIndex : A table containing file info;
+%                      can be imported from xlsx file by readIndex.m
+%        - groupName : Name of the target group (in groupIndex)
+%        - outputDir : directory to store output data
+% Output:
 %   allparams and allgof are optional
 %   allparams: parameters of left-truncated gamma model
 %              (column 1-6: alpha, alpha CI, beta, beta CI, mean, mean CI)
@@ -28,10 +26,14 @@ function [allparams,allgof,allxTrunc] = fitEachRecGamma(sortedData,groupIndex,fi
 %   - a figure containing plots of the fitted data for each recording;
 %   - gammastats_all.mat containing allparams, allgof, allfiles (file names
 %     of recordings) for the group.
-%   - The above files are saved in ../analysis/gammaFitting/groupName/
-
-% Note: This function was adapted from run_gammafit.m to fit Man Ho's data
-% structure. 
+%
+% Note: This function was adapted from run_gammafit.m (Liu et al. (2014))
+%
+% Reference:
+% Liu, M., Lewis, L. D., Shi, R., Brown, E. N., & Xu, W. (2014). 
+% Differential requirement for NMDAR activity in SAP97β-mediated regulation
+% of the number and strength of glutamatergic AMPAR-containing synapses. 
+% Journal of Neurophysiology, 111(3), 648–658. 
 
 %% Read data and initialize variables
 
@@ -46,7 +48,7 @@ allxTrunc=zeros(height(data),1);
 %           by default: {0, [0 99], 0} (should include all events)
 threshold = {0, [0 99], 0}; 
 
-outputDir = [outputDir '/' char(groupName) '/'];
+outputDir = [outputDir '/gamma_cdf/' char(groupName) '/'];
 if ~isfolder(outputDir)
     mkdir(outputDir);
 end
@@ -63,4 +65,5 @@ for f=1:height(data)
 end
 save([outputDir 'gammastats_all.mat'],'allfiles','allparams','allgof','allxTrunc');
 addpath(genpath(outputDir)); % Add newly created folders/files to path
+fprintf('Done! Output files were saved at:\n %s\n',outputDir);
 end
