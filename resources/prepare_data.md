@@ -52,7 +52,7 @@ In case you are using the Mini Analysis Program (Synaptosoft) to extract traces 
     <img src="img/aligned_traces.png" width="500">
 
 > **Overlapping events**   
-As you might have noticed in the above figure, some traces have more than one event (overlapping events in one single trace). This happens when the trace length is too long such that the trace covers the next event(s), or the frequency of events is very high. These traces will be excluded from analysis automatically and you will end up with fewer traces for analysis (See [signal_inspection.md](/signal_processing_algorithms/signal_inspection.md)). To reduce the number of overlapping events, adjust your trace length.
+As you might have noticed in the above figure, some traces have more than one event (overlapping events in one single trace). This happens when the trace length is too long such that the trace covers the next event(s), or the frequency of events is very high. These traces will be excluded from analysis automatically and you will end up with fewer traces for analysis (See [signal_inspection.md](signal_processing_algorithms/signal_inspection.md)). To reduce the number of overlapping events, adjust your trace length.
 
 
 # 2. Trace of capacitance transient

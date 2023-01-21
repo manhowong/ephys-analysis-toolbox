@@ -48,7 +48,7 @@ Unstable traces are defined as:
 
 ## 2. Find traces with no event or with multiple peaks (i.e. overlapping events)
 
-See [signal_detection.[md](/signal_detection.md) for the detection of peaks.
+See [signal_detection.md](signal_detection.md) for the detection of peaks.
 
 ## 3. Drop traces found in steps 1 and 2
 

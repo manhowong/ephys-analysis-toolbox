@@ -76,7 +76,7 @@ This toolbox is primarily designed to process miniature EPSC (mEPSC) data, thoug
 3. On the homepage of this Toolbox, click Add > Add to MATLAB.
 
 ### B. Install the Toolbox by installer
-1. Download the installer `EphysAnalysisToolbox.mltbx` [here](/EphysAnalysisToolbox.mltbx) or via MATLAB File Exchange.
+1. Download the installer `EphysAnalysisToolbox.mltbx` [here](EphysAnalysisToolbox.mltbx) or via MATLAB File Exchange.
 2. Run the installer.
 
 ### C. Use the Toolbox directly without installation
@@ -92,7 +92,7 @@ This toolbox is primarily designed to process miniature EPSC (mEPSC) data, thoug
 
 For batch processing, you will need **(A)** the raw data files, and **(B)** a file index that provides information for the identification of recordings.
 
-> To get a sense of how the files should look like, check out the [demo data](/demo_data). This dataset was extracted from 10 sample recordings and is ready for analysis. 
+> To get a sense of how the files should look like, check out the [demo data](demo_data). This dataset was extracted from 10 sample recordings and is ready for analysis. 
 
 ### A. Raw data files
 
@@ -100,31 +100,30 @@ Each module requires a specific type of raw data as input:
 
 | Module           | Data type                                                                    |
 |------------------|------------------------------------------------------------------------------|
-| `kinetics`       | Trace of detected event ([example](/demo_data/event_trace/1.txt))            |
-| `membrane_props` | Trace of capacitance transient ([example](/demo_data/transient_trace/1.txt)) |
-| `mini_props`     | Properties of detected event ([example](/demo_data/event_props/1.txt))       |
+| `kinetics`       | Trace of detected event ([example](demo_data/event_trace/1.txt))            |
+| `membrane_props` | Trace of capacitance transient ([example](demo_data/transient_trace/1.txt)) |
+| `mini_props`     | Properties of detected event ([example](demo_data/event_props/1.txt))       |
 
 See [`prepare_data.md`](resources/prepare_data.md) for data specifications.
 
 File naming and organization:
 - Raw data files should be saved in `.txt` format.
 - To associate a raw data file with the recording where its data was extracted from, the file should be named after the recording (e.g. name or ID of the recording file). Therefore, two files should have an identical name if both contain data extracted from the same recording.
-- Organize raw data files by the kind of data they contain, for example:
+- Organize raw data files by the type of data they contain, for example:
 
     ```
     raw_data/                 
     |---transient_trace/       # Traces of capacitance transients
     |   |---recording1.txt
     |   |---recording2.txt
-    |   |---recording3.txt
+    |
     |---event_props/           # Properties of every detected events
     |   |---recording1.txt
     |   |---recording2.txt
-    |   |---recording3.txt
+    |
     |---event_trace/           # Traces of detected events
         |---recording1.txt
         |---recording2.txt
-        |---recording3.txt
     ```
 
 ### B. File index
@@ -141,11 +140,11 @@ Example of a file index:
 | recording2.txt | 1001    | ctrl      | m   | 01/01/23 | 31  | 1       |
 | recording3.txt | 1010    | ctrl      | f   | 01/01/23 | 32  | 1       |
 
-The easiest way to create a file index is probably using [`fileIndex.xlsx`](/demo_data/fileIndex.xlsx) in the `demo_data` folder as a template. 
+The easiest way to create a file index is probably using [`fileIndex.xlsx`](demo_data/fileIndex.xlsx) in the `demo_data` folder as a template. 
 
 ## 4.2 Run analysis using script templates
 
-In the [`templates`](/templates/) folder, you will find a collection of script templates written with the Toolbox. You can use these templates directly to analyze your data.
+In the [`templates`](templates) folder, you will find a collection of script templates written with the Toolbox. You can use these templates directly to analyze your data.
 
 - `pipeline.mlx` : This is an analysis pipeline covering all modules of the Toolbox, except that batch processing is not available for some analyses (e.g. NSFA). For those analyses, you may use the templates for batch analysis (see below).
 - `runFitDecay.m` : computes the decay parameters of each event in every recording found in a folder.
@@ -175,10 +174,10 @@ Instructions for each template are included in the file itself.
 
 You can build your analysis pipeline by modifying any of the above templates. You can also create a new pipeline from scratch using the functions in this Toolbox.
 
-Inside each module's folder (e.g. [`/functions/kinetics`](/functions/kinetics/)), you will find functions that can be used directly to analyze one recording file (e.g. `nsfa.m`) or one group of recordings (e.g. `fitGroupDist.m`). For batch processing, you just need to run these functions iteratively on multiple recordings or groups (This is basically what the above templates do: e.g. `runNSFA.m` runs `nsfa.m` iteratively).
+Inside each module's folder (e.g. [`functions/kinetics`](functions/kinetics)), you will find functions that can be used directly to analyze one recording file (e.g. `nsfa.m`) or one group of recordings (e.g. `fitGroupDist.m`). For batch processing, you just need to run these functions iteratively on multiple recordings or groups (This is basically what the above templates do: e.g. `runNSFA.m` runs `nsfa.m` iteratively).
 
 > **Build from scratch**  
-Alternatively, you can build your pipeline from scratch, using the functions in [`/functions/common/`](/functions/common/). The general steps are:
+Alternatively, you can build your pipeline from scratch, using the functions in [`functions/common`](/functions/common). The general steps are:
 > 1. Import the raw data
 > 2. Signal processing (e.g. detect peaks, compute frequency/IEI, etc.)
 > 3. Transform data (e.g. merge datasets, bootstrap the data, etc.)
@@ -190,14 +189,14 @@ Alternatively, you can build your pipeline from scratch, using the functions in 
 
 # 5. Algorithms
 
-- Algorithms for signal processing are explained [here](/resources/signal_processing_algorithms/).
-- Algorithms for ephys. analysis are explained [here](/resources/analysis_algorithms/). 
+- Algorithms for signal processing are explained [here](resources/signal_processing_algorithms).
+- Algorithms for ephys. analysis are explained [here](resources/analysis_algorithms). 
 
 # 6. About
 
 ## License
 
-This Toolbox is licensed under the [GNU General Public License v3.0](https://github.com/manhowong/ephys-analysis-toolbox/blob/78d01eba0790664c0792e4cf3f39081448774af7/LICENSE).
+This Toolbox is licensed under the [GNU General Public License v3.0](LICENSE).
 
 ## References
 
